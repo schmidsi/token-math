@@ -5,11 +5,10 @@
  * - [x] Token Type: Symbol, Address, Decimals
  * - [x] Quantity Type: Token, Quantity in token
  * - [x] Price Type: BaseToken, QuoteToken, canceled down buy/sell
- * - [ ] getPrice(quoteQuantity, baseQuantity): Price
+ * - [x] getPrice(quoteQuantity, baseQuantity): Price
  * - [ ] valueIn (BaseToken * Price or QuoteToken / Price) // Check if meaningful
  * - [x] add/subtract (check if same tokens)
  * - [ ] getPriceChange(): Number
- * - [ ] getFraction(quantityA, quantityB): Number
  */
 
 type BigInt = number;
@@ -17,7 +16,7 @@ declare const BigInt: typeof Number;
 
 export interface Token {
   readonly symbol: string;
-  readonly address: string;
+  readonly address?: string;
   readonly decimals: number;
 }
 
@@ -40,8 +39,8 @@ class RequireError extends Error {
   }
 }
 
-export const greatestCommonDivisor = (a: BigInt, b: BigInt): BigInt =>
-  b === toBigInt(0) ? a : greatestCommonDivisor(b, a % b);
+export const getGreatestCommonDivisor = (a: BigInt, b: BigInt): BigInt =>
+  b === toBigInt(0) ? a : getGreatestCommonDivisor(b, a % b);
 
 export const require = (
   test: boolean,
@@ -67,17 +66,25 @@ export const toBigInt = (num: BigInt | Number | String) => BigInt(num);
 export const add = (a: Quantity, b: Quantity): Quantity => {
   requireSameToken(a, b);
 
-  return {
-    ...a,
-    quantity: a.quantity + b.quantity
-  };
+  return createQuantity(a, a.quantity + b.quantity);
 };
 
 export const subtract = (a: Quantity, b: Quantity): Quantity => {
   requireSameToken(a, b);
 
+  return createQuantity(a, a.quantity - b.quantity);
+};
+
+export const getPrice = (base: Quantity, quote: Quantity): Price => {
+  const gcd = getGreatestCommonDivisor(base.quantity, quote.quantity);
+
   return {
-    ...a,
-    quantity: a.quantity - b.quantity
+    base: createQuantity(base, base.quantity / gcd),
+    quote: createQuantity(quote, quote.quantity / gcd)
   };
 };
+
+export const priceToNumber = (price: Price): Number =>
+  (parseFloat(price.quote.quantity.toString()) /
+    parseFloat(price.base.quantity.toString())) *
+  10 ** (price.base.decimals - price.quote.decimals);
