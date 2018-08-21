@@ -6,7 +6,7 @@
  * - [x] Quantity Type: Token, Quantity in token
  * - [x] Price Type: BaseToken, QuoteToken, canceled down buy/sell
  * - [x] getPrice(quoteQuantity, baseQuantity): Price
- * - [ ] valueIn (BaseToken * Price or QuoteToken / Price) // Check if meaningful
+ * - [x] valueIn (BaseToken * Price or QuoteToken / Price) // Check if meaningful
  * - [x] add/subtract (check if same tokens)
  * - [ ] getPriceChange(): Number
  */
@@ -84,7 +84,28 @@ export const getPrice = (base: Quantity, quote: Quantity): Price => {
   };
 };
 
-export const priceToNumber = (price: Price): Number =>
-  (parseFloat(price.quote.quantity.toString()) /
-    parseFloat(price.base.quantity.toString())) *
-  10 ** (price.base.decimals - price.quote.decimals);
+export const displayPrice = (price: Price, decimals: number = 6): string =>
+  (
+    (parseFloat(price.quote.quantity.toString()) /
+      parseFloat(price.base.quantity.toString())) *
+    10 ** (price.base.decimals - price.quote.decimals)
+  ).toFixed(decimals);
+
+// valueIn (BaseToken * Price or QuoteToken / Price) // Check if meaningful
+export const valueIn = (price: Price, quantity: Quantity): Quantity => {
+  require(isSameToken(price.base, quantity) ||
+    isSameToken(
+      price.quote,
+      quantity
+    ), "Require price to contain token to convert", { price, quantity });
+
+  return isSameToken(price.base, quantity)
+    ? createQuantity(
+        price.quote,
+        (quantity.quantity * price.quote.quantity) / price.base.quantity
+      )
+    : createQuantity(
+        price.base,
+        (quantity.quantity / price.quote.quantity) * price.base.quantity
+      );
+};

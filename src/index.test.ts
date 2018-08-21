@@ -8,11 +8,11 @@ import {
   createQuantity,
   getGreatestCommonDivisor,
   getPrice,
-  // valueIn,
+  valueIn,
   Token,
   Quantity,
   Price,
-  priceToNumber
+  displayPrice
 } from "./index";
 
 const tokenA: Token = {
@@ -41,7 +41,6 @@ const ether: Token = {
 
 const usd: Token = {
   symbol: "USD",
-  address: "0x345",
   decimals: 2
 };
 
@@ -89,23 +88,36 @@ test("getPrice", () => {
   });
 });
 
-test("priceToNumber", () => {
+test("displayPrice", () => {
   const price = getPrice(quantityA1, quantityB1);
-  expect(priceToNumber(price)).toBe(1);
+  expect(displayPrice(price)).toBe("1.000000");
 
   const ethInBtc = getPrice(
     createQuantity(ether, toBigInt("1000000000000000000")),
     createQuantity(bitcoin, toBigInt("4380219"))
   );
 
-  expect(priceToNumber(ethInBtc)).toBe(0.04380219);
+  expect(displayPrice(ethInBtc)).toBe("0.043802");
 
   const btcInUsd = getPrice(
     createQuantity(bitcoin, toBigInt("100000000")),
     createQuantity(usd, toBigInt("645861"))
   );
 
-  expect(priceToNumber(btcInUsd)).toBe(6458.61);
+  expect(displayPrice(btcInUsd)).toBe("6458.610000");
 });
 
-test("valueIn", () => {});
+test("valueIn", () => {
+  const ethInBtc = getPrice(
+    createQuantity(ether, toBigInt("1000000000000000000")),
+    createQuantity(bitcoin, toBigInt("4380219"))
+  );
+
+  expect(
+    valueIn(ethInBtc, createQuantity(ether, toBigInt("2000000000000000000")))
+  ).toEqual(createQuantity(bitcoin, toBigInt("8760438")));
+
+  expect(
+    valueIn(ethInBtc, createQuantity(bitcoin, toBigInt("8760438")))
+  ).toEqual(createQuantity(ether, toBigInt("2000000000000000000")));
+});
