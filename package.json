@@ -1,5 +1,6 @@
 {
-  "name": "mjs-migration-scratchpad",
+  "name": "token-math",
+  "description": "A small helper library to do precision safe calculations",
   "version": "0.0.0",
   "main": "src/index.ts",
   "license": "MIT",
