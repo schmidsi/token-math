@@ -1,12 +1,12 @@
-import { add, toBigInt } from "./";
+import { add, toBigInt, BigInt } from "./";
 
 test("toBigInt", () => {
-  expect(toBigInt(10)).toBe(toBigInt(10));
-  expect(toBigInt("10")).toBe(toBigInt("10"));
+  expect(toBigInt(10)).toBe(BigInt(10));
+  expect(toBigInt("10")).toBe(BigInt("10"));
   expect(toBigInt("109234859234590872039845709823475098723489057")).not.toBe(
-    toBigInt(10)
+    BigInt(10)
   );
-  expect(toBigInt("0x123")).toBe(toBigInt(291));
+  expect(toBigInt("0x123")).toBe(BigInt(291));
 });
 
 test("default", () => {

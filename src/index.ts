@@ -15,8 +15,9 @@
 type BigInt = number;
 declare const BigInt: typeof Number;
 
+const toBigInt = (num: BigInt | Number | String) => BigInt(num);
 const add = (a: BigInt, b: BigInt): BigInt => a + b;
 
 console.log(add(BigInt("1324"), BigInt("1324")));
 
-export { add };
+export { add, toBigInt };
