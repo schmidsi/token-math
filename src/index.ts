@@ -5,9 +5,9 @@
  * - [x] Token Type: Symbol, Address, Decimals
  * - [x] Quantity Type: Token, Quantity in token
  * - [x] Price Type: BaseToken, QuoteToken, canceled down buy/sell
- * - [ ] valueIn (BaseToken * Price or QuoteToken / Price) // Check if meaningful
- * - [ ] add/subtract (check if same tokens)
  * - [ ] getPrice(quoteQuantity, baseQuantity): Price
+ * - [ ] valueIn (BaseToken * Price or QuoteToken / Price) // Check if meaningful
+ * - [x] add/subtract (check if same tokens)
  * - [ ] getPriceChange(): Number
  * - [ ] getFraction(quantityA, quantityB): Number
  */
@@ -39,6 +39,9 @@ class RequireError extends Error {
     Object.setPrototypeOf(this, RequireError.prototype);
   }
 }
+
+export const greatestCommonDivisor = (a: BigInt, b: BigInt): BigInt =>
+  b === toBigInt(0) ? a : greatestCommonDivisor(b, a % b);
 
 export const require = (
   test: boolean,

@@ -5,8 +5,11 @@ import {
   add,
   subtract,
   toBigInt,
-  Token,
   createQuantity,
+  greatestCommonDivisor,
+  // getPrice,
+  // valueIn,
+  Token,
   Quantity,
   Price
 } from "./index";
@@ -31,6 +34,7 @@ const tokenC: Token = {
 
 const quantityA1 = createQuantity(tokenA, toBigInt(2000));
 const quantityA2 = createQuantity(tokenA, toBigInt(3000));
+const quantityB1 = createQuantity(tokenB, toBigInt(20000));
 
 test("toBigInt", () => {
   expect(toBigInt(10)).toBe(BigInt(10));
@@ -45,10 +49,26 @@ test("add", () => {
   expect(add(quantityA1, quantityA2)).toEqual(
     createQuantity(tokenA, toBigInt(5000))
   );
+
+  expect(() => add(quantityA1, quantityB1)).toThrow();
 });
 
 test("subtract", () => {
   expect(subtract(quantityA2, quantityA1)).toEqual(
     createQuantity(tokenA, toBigInt(1000))
   );
+
+  expect(() => subtract(quantityA1, quantityB1)).toThrow();
 });
+
+test("greatestCommonDivisor", () => {
+  expect(greatestCommonDivisor(toBigInt(6), toBigInt(3))).toBe(toBigInt(3));
+  expect(greatestCommonDivisor(toBigInt(5), toBigInt(1))).toBe(toBigInt(1));
+  expect(greatestCommonDivisor(toBigInt(5), toBigInt(0))).toBe(toBigInt(5));
+  expect(greatestCommonDivisor(toBigInt(25), toBigInt(5))).toBe(toBigInt(5));
+  expect(greatestCommonDivisor(toBigInt(5), toBigInt(25))).toBe(toBigInt(5));
+});
+
+// test("getPrice", () => {
+//   expect(getPrice(quantityA1, quantityB1)).
+// })
