@@ -1,6 +1,3 @@
-type BigInt = number;
-declare const BigInt: typeof Number;
-
 import {
   add,
   subtract,
@@ -9,37 +6,35 @@ import {
   getGreatestCommonDivisor,
   getPrice,
   valueIn,
-  Token,
-  Quantity,
-  Price,
-  displayPrice
+  TokenInterface,
+  toFixed
 } from "./index";
 
-const tokenA: Token = {
+const tokenA: TokenInterface = {
   symbol: "TKNA",
   address: "0x0",
   decimals: 3
 };
 
-const tokenB: Token = {
+const tokenB: TokenInterface = {
   symbol: "TKNB",
   address: "0x1",
   decimals: 4
 };
 
-const bitcoin: Token = {
+const bitcoin: TokenInterface = {
   symbol: "BTC",
   address: "0x123",
   decimals: 8
 };
 
-const ether: Token = {
+const ether: TokenInterface = {
   symbol: "ETH",
   address: "0x234",
   decimals: 18
 };
 
-const usd: Token = {
+const usd: TokenInterface = {
   symbol: "USD",
   decimals: 2
 };
@@ -88,23 +83,23 @@ test("getPrice", () => {
   });
 });
 
-test("displayPrice", () => {
+test("toFixed", () => {
   const price = getPrice(quantityA1, quantityB1);
-  expect(displayPrice(price)).toBe("1.000000");
+  expect(toFixed(price)).toBe("1.000000");
 
   const ethInBtc = getPrice(
     createQuantity(ether, toBigInt("1000000000000000000")),
     createQuantity(bitcoin, toBigInt("4380219"))
   );
 
-  expect(displayPrice(ethInBtc)).toBe("0.043802");
+  expect(toFixed(ethInBtc)).toBe("0.043802");
 
   const btcInUsd = getPrice(
     createQuantity(bitcoin, toBigInt("100000000")),
     createQuantity(usd, toBigInt("645861"))
   );
 
-  expect(displayPrice(btcInUsd)).toBe("6458.610000");
+  expect(toFixed(btcInUsd)).toBe("6458.610000");
 });
 
 test("valueIn", () => {

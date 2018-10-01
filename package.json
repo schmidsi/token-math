@@ -12,6 +12,8 @@
     "node": "^10.4.0"
   },
   "dependencies": {
+    "@types/bn.js": "^4.11.2",
+    "bn.js": "^4.11.8",
     "parcel-bundler": "^1.9.7"
   },
   "devDependencies": {
