@@ -42,3 +42,4 @@ const sumCurry = add(quantityA1)(quantityA2);
 - [x] valueIn (BaseToken \* Price or QuoteToken / Price) // Check if meaningful
 - [x] add/subtract (check if same tokens)
 - [ ] getPriceChange(): Number
+- [ ] Folder structure: Maybe overkill with all reexports. Better: Classes as default exports (for convenience), functions with deep export
