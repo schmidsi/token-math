@@ -43,7 +43,10 @@ const sumCurry = add(quantityA1)(quantityA2);
 - [x] add/subtract (check if same tokens)
 - [ ] getPriceChange(): Number
 - [ ] Folder structure: Maybe overkill with all reexports. Better: Classes as default exports (for convenience), functions with deep export
+- [ ] Typedocs
+- [ ] BigInt fallback
 
 ## Questions
 
 - Make the OO interface an own package?
+- Code generation?
