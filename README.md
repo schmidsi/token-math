@@ -12,25 +12,11 @@ _This is heavily work in progress. But feel free to open issues/pull-request wit
 - Use https://github.com/tc39/proposal-bigint but with a fallback
 - Reuse JS-native functions like: toFixed, toNumber, ...
 
-## Scratchpad
+## Flexible API
 
-### Flexible API:
+You can use all the functionality either in object-oriented style or in functional style.
 
-```typescript
-const tokenA = new Token("TKNA");
-const tokenB = {
-  symbol: "TKNB",
-  address: "0x123",
-  decimals: 6
-};
-
-const quantityA1 = createQuantity(tokenA, toBigInt(2000));
-const quantityA2 = new Quantity(tokenA, toBigInt(50000));
-
-const sumOO = quantityA1.add(quantityA2);
-const sumFn = add(quantityA1, quantityA2);
-const sumCurry = add(quantityA1)(quantityA2);
-```
+- [objectOrientedAPI.test.ts](./src/objectOrientedAPI.test.ts).
 
 ## TODO
 
@@ -42,9 +28,10 @@ const sumCurry = add(quantityA1)(quantityA2);
 - [x] valueIn (BaseToken \* Price or QuoteToken / Price) // Check if meaningful
 - [x] add/subtract (check if same tokens)
 - [ ] getPriceChange(): Number
-- [ ] Folder structure: Maybe overkill with all reexports. Better: Classes as default exports (for convenience), functions with deep export
+- [x] Folder structure: Maybe overkill with all reexports. Better: Classes as default exports (for convenience), functions with deep export
 - [ ] Typedocs
-- [ ] BigInt fallback
+- [ ] BigInt fallback (BigInteger)
+- [ ] Quantity.toFixed
 
 ## Questions
 
