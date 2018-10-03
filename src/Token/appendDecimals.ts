@@ -5,7 +5,7 @@ const appendDecimals = (token: TokenInterface, n: number): BigInt => {
   const int = parseInt(string).toString();
   const decimals = string.slice(int.length + 1);
   const padding = Array(token.decimals - decimals.length)
-    .fill(0)
+    .map(() => 0)
     .join("");
 
   return BigInt(`${int}${decimals}${padding}`);

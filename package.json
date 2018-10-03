@@ -1,11 +1,14 @@
 {
-  "name": "token-math",
+  "name": "@melonproject/token-math",
   "description": "A small helper library to do precision safe calculations",
-  "version": "0.0.0",
-  "main": "src/index.ts",
+  "version": "0.0.1-alpha.1",
+  "main": "dist/index.js",
+  "private": false,
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prepare": "yarn build"
   },
   "engines": {
     "node": "^10.4.0"

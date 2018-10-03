@@ -32,6 +32,7 @@ You can use all the functionality either in object-oriented style or in function
 - [ ] Typedocs
 - [ ] BigInt fallback (BigInteger)
 - [ ] Quantity.toFixed
+- [ ] Test ES5 Build
 
 ## Questions
 

@@ -4,7 +4,6 @@ class EnsureError extends Error {
   constructor(message: string, context: any) {
     super(message);
     this.data = context;
-    Object.setPrototypeOf(this, EnsureError.prototype);
   }
 }
 
