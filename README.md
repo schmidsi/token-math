@@ -17,6 +17,7 @@ _This is heavily work in progress. But feel free to open issues/pull-request wit
 You can use all the functionality either in object-oriented style or in functional style.
 
 - [objectOrientedAPI.test.ts](./src/objectOrientedAPI.test.ts).
+- [functionalAPI.test.ts](./src/functionalAPI.test.ts).
 
 ## TODO
 
