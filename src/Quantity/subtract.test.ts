@@ -4,21 +4,21 @@ const quantityA1 = {
   symbol: "TKNA",
   address: "0x0",
   decimals: 3,
-  quantity: 2000
+  quantity: BigInt(2000)
 };
 
 const quantityA2 = {
   symbol: "TKNA",
   address: "0x0",
   decimals: 3,
-  quantity: 3000
+  quantity: BigInt(3000)
 };
 
 const quantityB1 = {
   symbol: "TKNB",
   address: "0x1",
   decimals: 4,
-  quantity: 20000
+  quantity: BigInt(20000)
 };
 
 test("subtract", () => {
@@ -26,7 +26,7 @@ test("subtract", () => {
     symbol: "TKNA",
     address: "0x0",
     decimals: 3,
-    quantity: 1000
+    quantity: BigInt(1000)
   });
 
   expect(() => subtract(quantityA1, quantityB1)).toThrow();

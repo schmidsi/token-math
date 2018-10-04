@@ -1,12 +1,9 @@
-import getGreatestCommonDivisor from "../BigInt/getGreatestCommonDivisor";
-import QuantityInterface from "../Quantity/QuantityInterface";
+import getGreatestCommonDivisor from "../bigInteger/getGreatestCommonDivisor";
+import Quantity from "quantity/Quantity";
 import createQuantity from "../Quantity/createQuantity";
-import PriceInterface from "./PriceInterface";
+import Price from "./Price";
 
-const getPrice = (
-  base: QuantityInterface,
-  quote: QuantityInterface
-): PriceInterface => {
+const getPrice = (base: Quantity, quote: Quantity): Price => {
   const gcd = getGreatestCommonDivisor(base.quantity, quote.quantity);
 
   return {

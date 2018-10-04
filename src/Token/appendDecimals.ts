@@ -1,6 +1,6 @@
-import TokenInterface from "./TokenInterface";
+import Token from "./Token";
 
-const appendDecimals = (token: TokenInterface, n: number): BigInt => {
+const appendDecimals = (token: Token, n: number): BigInt => {
   const string = n.toString();
   const int = parseInt(string).toString();
   const decimals = string.slice(int.length + 1);

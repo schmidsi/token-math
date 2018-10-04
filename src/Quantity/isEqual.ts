@@ -1,7 +1,7 @@
-import QuantityInterface from "./QuantityInterface";
-import isSameToken from "../Token/isSameToken";
+import Quantity from "./Quantity";
+import isSameToken from "../token/isSameToken";
 
-const isEqual = (a: QuantityInterface, b: QuantityInterface) =>
+const isEqual = (a: Quantity, b: Quantity) =>
   isSameToken(a, b) && a.quantity === b.quantity;
 
 export default isEqual;

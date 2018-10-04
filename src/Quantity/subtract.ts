@@ -1,11 +1,8 @@
-import ensureSameToken from "../Token/ensureSameToken";
-import QuantityInterface from "./QuantityInterface";
+import ensureSameToken from "../token/ensureSameToken";
+import Quantity from "./Quantity";
 import createQuantity from "./createQuantity";
 
-export const subtract = (
-  a: QuantityInterface,
-  b: QuantityInterface
-): QuantityInterface => {
+export const subtract = (a: Quantity, b: Quantity): Quantity => {
   ensureSameToken(a, b);
 
   return createQuantity(a, a.quantity - b.quantity);

@@ -1,13 +1,10 @@
-import PriceInterface from "./PriceInterface";
-import QuantityInterface from "../Quantity/QuantityInterface";
+import Price from "./Price";
+import Quantity from "quantity/Quantity";
 import createQuantity from "../Quantity/createQuantity";
 import isSameToken from "../Token/isSameToken";
 import ensure from "../utils/ensure";
 
-const valueIn = (
-  price: PriceInterface,
-  quantity: QuantityInterface
-): QuantityInterface => {
+const valueIn = (price: Price, quantity: Quantity): Quantity => {
   ensure(
     isSameToken(price.base, quantity) || isSameToken(price.quote, quantity),
     "Require price to contain token to convert",

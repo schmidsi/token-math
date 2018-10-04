@@ -8,16 +8,9 @@ _This is heavily work in progress. But feel free to open issues/pull-request wit
 
 - Fully type script typed
 - Reusable
-- Functional & object-oriented API (flexible API)
+- Functional & object-oriented API ready (flexible API, see below)
 - Use https://github.com/tc39/proposal-bigint but with a fallback
 - Reuse JS-native functions like: toFixed, toNumber, ...
-
-## Flexible API
-
-You can use all the functionality either in object-oriented style or in functional style.
-
-- [objectOrientedAPI.test.ts](./src/objectOrientedAPI.test.ts).
-- [functionalAPI.test.ts](./src/functionalAPI.test.ts).
 
 ## TODO
 
@@ -39,3 +32,48 @@ You can use all the functionality either in object-oriented style or in function
 
 - Make the OO interface an own package?
 - Code generation?
+
+## Flexible API
+
+It seems to be confusing to have both styles in the same repo. But it should be straight forward to create a OO wrapper on top of the functions. Here is an example:
+
+```typescript
+import { createQuantity } from "../Quantity";
+
+import appendDecimals from "./appendDecimals";
+import Token from "./Token";
+import isSameToken from "./isSameToken";
+import createToken from "./createToken";
+
+class Token implements Token {
+  readonly symbol: string;
+  readonly address?: string;
+  readonly decimals: number;
+
+  // constructor(symbol: string);
+  constructor(tokenOrSymbol: Token | string) {
+    const token =
+      typeof tokenOrSymbol === "string"
+        ? createToken(tokenOrSymbol)
+        : tokenOrSymbol;
+
+    this.symbol = token.symbol;
+    this.decimals = token.decimals;
+    this.address = token.address;
+  }
+
+  static createToken = createToken;
+
+  createQuantity = number => createQuantity(this, number);
+
+  static appendDecimals = appendDecimals;
+  appendDecimals = number => appendDecimals(this, number);
+
+  static isSameToken = isSameToken;
+  isSameToken = compareToken => isSameToken(this, compareToken);
+}
+
+export default Token;
+```
+
+Or here before we removed the OO API from this repo: https://github.com/melonproject/token-math/tree/before-ooapi-remove

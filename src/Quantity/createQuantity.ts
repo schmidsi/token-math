@@ -1,10 +1,7 @@
-import TokenInterface from "../Token/TokenInterface";
-import QuantityInterface from "./QuantityInterface";
+import Token from "token/Token";
+import Quantity from "./Quantity";
 
-const createQuantity = (
-  token: TokenInterface,
-  quantity: BigInt
-): QuantityInterface => ({
+const createQuantity = (token: Token, quantity: BigInt): Quantity => ({
   ...token,
   quantity: BigInt(quantity)
 });
