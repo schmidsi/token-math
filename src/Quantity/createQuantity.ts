@@ -6,7 +6,7 @@ const createQuantity = (
   quantity: BigInt
 ): QuantityInterface => ({
   ...token,
-  quantity
+  quantity: BigInt(quantity)
 });
 
 export default createQuantity;

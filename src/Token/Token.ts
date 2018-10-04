@@ -1,3 +1,5 @@
+import { createQuantity } from "../Quantity";
+
 import appendDecimals from "./appendDecimals";
 import TokenInterface from "./TokenInterface";
 import isSameToken from "./isSameToken";
@@ -21,6 +23,8 @@ class Token implements TokenInterface {
   }
 
   static createToken = createToken;
+
+  createQuantity = number => createQuantity(this, number);
 
   static appendDecimals = appendDecimals;
   appendDecimals = number => appendDecimals(this, number);
