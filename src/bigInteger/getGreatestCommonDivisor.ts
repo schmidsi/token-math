@@ -1,6 +1,10 @@
-import toBigInt from "./toBigInt";
+import BigInteger from "./BigInteger";
+import isZero from "./isZero";
+import modulo from "./modulo";
 
-const getGreatestCommonDivisor = (a: BigInt, b: BigInt): BigInt =>
-  b === toBigInt(0) ? a : getGreatestCommonDivisor(b, a % b);
+// console.log(typeof BigInt === undefined);
+
+const getGreatestCommonDivisor = (a: BigInteger, b: BigInteger): BigInteger =>
+  isZero(b) ? a : getGreatestCommonDivisor(b, modulo(a, b));
 
 export default getGreatestCommonDivisor;

@@ -12,9 +12,7 @@ test("Happy path", () => {
 
   const fromHex = new BigInteger("0xa");
   expect(fromHex.value).toBe("10");
-});
 
-test("Throws on bad arguments", () => {
-  expect(() => new BigInteger(123.5)).toThrow(TypeError);
-  expect(() => new BigInteger("123.5")).toThrow(TypeError);
+  const fromBigInt = new BigInteger(BigInt(123));
+  expect(fromBigInt.value).toBe("123");
 });

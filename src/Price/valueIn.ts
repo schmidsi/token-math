@@ -1,3 +1,5 @@
+import multiply from "../bigInteger/multiply";
+import divide from "../bigInteger/divide";
 import Price from "./Price";
 import Quantity from "quantity/Quantity";
 import createQuantity from "../Quantity/createQuantity";
@@ -14,11 +16,17 @@ const valueIn = (price: Price, quantity: Quantity): Quantity => {
   return isSameToken(price.base, quantity)
     ? createQuantity(
         price.quote,
-        (quantity.quantity * price.quote.quantity) / price.base.quantity
+        divide(
+          multiply(quantity.quantity, price.quote.quantity),
+          price.base.quantity
+        )
       )
     : createQuantity(
         price.base,
-        (quantity.quantity / price.quote.quantity) * price.base.quantity
+        multiply(
+          divide(quantity.quantity, price.quote.quantity),
+          price.base.quantity
+        )
       );
 };
 

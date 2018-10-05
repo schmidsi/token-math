@@ -1,33 +1,39 @@
+import BigInteger from "../bigInteger/BigInteger";
+import isEqual from "./isEqual";
+
 import subtract from "./subtract";
 
 const quantityA1 = {
   symbol: "TKNA",
   address: "0x0",
   decimals: 3,
-  quantity: BigInt(2000)
+  quantity: new BigInteger(2000)
 };
 
 const quantityA2 = {
   symbol: "TKNA",
   address: "0x0",
   decimals: 3,
-  quantity: BigInt(3000)
+  quantity: new BigInteger(3000)
 };
 
 const quantityB1 = {
   symbol: "TKNB",
   address: "0x1",
   decimals: 4,
-  quantity: BigInt(20000)
+  quantity: new BigInteger(20000)
 };
 
 test("subtract", () => {
-  expect(subtract(quantityA2, quantityA1)).toEqual({
+  const result = subtract(quantityA2, quantityA1);
+  const expected = {
     symbol: "TKNA",
     address: "0x0",
     decimals: 3,
-    quantity: BigInt(1000)
-  });
+    quantity: new BigInteger(1000)
+  };
+
+  expect(isEqual(result, expected)).toBe(true);
 
   expect(() => subtract(quantityA1, quantityB1)).toThrow();
 });

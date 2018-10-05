@@ -1,7 +1,8 @@
-import Token from "token/Token";
+import BigInteger from "../bigInteger/BigInteger";
+import Token from "../token/Token";
 
 interface Quantity extends Token {
-  readonly quantity: BigInt;
+  readonly quantity: BigInteger;
 }
 
 export default Quantity;
