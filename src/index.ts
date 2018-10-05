@@ -7,12 +7,14 @@ import add from "./quantity/add";
 import createQuantity from "./quantity/createQuantity";
 import subtract from "./quantity/subtract";
 import isEqual from "./quantity/isEqual";
+import greaterThan from "./quantity/greaterThan";
 
 export const quantity = {
   add,
   createQuantity,
   subtract,
-  isEqual
+  isEqual,
+  greaterThan
 };
 
 export { default as Token } from "./token/Token";
