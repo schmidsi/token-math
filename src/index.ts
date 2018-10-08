@@ -2,6 +2,9 @@
 // to avoid confusion.
 export { default as BigInteger } from "./bigInteger/BigInteger";
 
+export { default as Price } from "./price/Price";
+export { default as price } from "./price/index";
+
 export { default as Quantity } from "./quantity/Quantity";
 import add from "./quantity/add";
 import createQuantity from "./quantity/createQuantity";
