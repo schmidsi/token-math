@@ -12,7 +12,4 @@ test("Happy path", () => {
 
   const fromHex = new BigInteger("0xa");
   expect(fromHex.value).toBe("10");
-
-  const fromBigInt = new BigInteger(BigInt(123));
-  expect(fromBigInt.value).toBe("123");
 });
