@@ -38,3 +38,17 @@ test("normalize decimals", () => {
 
   expect(result).toBeEqual(expected);
 });
+
+test("ETH/USD", () => {
+  const price = getPrice(
+    createQuantity(eth, "2000000000000000000"),
+    createQuantity(usd, 45724)
+  );
+  const result = normalize(price);
+  const expected = getPrice(
+    createQuantity(eth, "1000000000000000000"),
+    createQuantity(usd, 22862)
+  );
+
+  expect(result).toBeEqual(expected);
+});

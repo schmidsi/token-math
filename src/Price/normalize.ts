@@ -1,4 +1,11 @@
-import { divide, modulo, multiply, BigInteger, add } from "../bigInteger";
+import {
+  divide,
+  modulo,
+  multiply,
+  BigInteger,
+  add,
+  power
+} from "../bigInteger";
 import { createQuantity } from "../quantity";
 import IPrice from "./IPrice";
 
@@ -13,12 +20,12 @@ import IPrice from "./IPrice";
  */
 const normalize = (price: IPrice): IPrice => {
   const factor = divide(
-    new BigInteger(10 ** price.base.decimals),
+    power(new BigInteger(10), new BigInteger(price.base.decimals)),
     price.base.quantity
   );
 
   const rest = modulo(
-    new BigInteger(10 ** price.base.decimals),
+    power(new BigInteger(10), new BigInteger(price.base.decimals)),
     price.base.quantity
   );
 
