@@ -1,6 +1,6 @@
-import Token from "./Token";
+import IToken from "./IToken";
 
-const createToken = (symbol: string): Token => ({
+const createToken = (symbol: string): IToken => ({
   symbol,
   decimals: 18
 });

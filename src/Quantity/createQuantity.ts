@@ -1,11 +1,11 @@
 import BigInteger from "../bigInteger/BigInteger";
-import Token from "../token/Token";
-import Quantity from "./Quantity";
+import IToken from "../token/IToken";
+import IQuantity from "./IQuantity";
 
 const createQuantity = (
-  token: Token,
+  token: IToken,
   quantity: string | BigInteger
-): Quantity => ({
+): IQuantity => ({
   ...token,
   quantity: typeof quantity === "string" ? new BigInteger(quantity) : quantity
 });

@@ -1,7 +1,7 @@
 import BigInteger from "../bigInteger/BigInteger";
-import Token from "./Token";
+import IToken from "./IToken";
 
-const appendDecimals = (token: Token, n: number): BigInteger => {
+const appendDecimals = (token: IToken, n: number): BigInteger => {
   const string = n.toString();
   const int = parseInt(string).toString();
   const decimals = string.slice(int.length + 1);

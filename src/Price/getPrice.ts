@@ -1,10 +1,10 @@
 import getGreatestCommonDivisor from "../bigInteger/getGreatestCommonDivisor";
 import divide from "../bigInteger/divide";
-import Quantity from "quantity/Quantity";
+import IQuantity from "quantity/IQuantity";
 import createQuantity from "../Quantity/createQuantity";
-import Price from "./Price";
+import IPrice from "./IPrice";
 
-const getPrice = (base: Quantity, quote: Quantity): Price => {
+const getPrice = (base: IQuantity, quote: IQuantity): IPrice => {
   const gcd = getGreatestCommonDivisor(base.quantity, quote.quantity);
 
   return {

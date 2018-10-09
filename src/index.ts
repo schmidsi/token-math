@@ -2,33 +2,14 @@
 // to avoid confusion.
 export { default as BigInteger } from "./bigInteger/BigInteger";
 
-export { default as Price } from "./price/Price";
-export { default as price } from "./price/index";
+import * as PriceExport from "./price";
+export { default as IPrice } from "./price/IPrice";
+export const Price = PriceExport;
 
-export { default as Quantity } from "./quantity/Quantity";
-import add from "./quantity/add";
-import createQuantity from "./quantity/createQuantity";
-import subtract from "./quantity/subtract";
-import isEqual from "./quantity/isEqual";
-import greaterThan from "./quantity/greaterThan";
+import * as QuantityExport from "./quantity";
+export { default as IQuantity } from "./quantity/IQuantity";
+export const Quantity = QuantityExport;
 
-export const quantity = {
-  add,
-  createQuantity,
-  subtract,
-  isEqual,
-  greaterThan
-};
-
-export { default as Token } from "./token/Token";
-import appendDecimals from "./token/appendDecimals";
-import createToken from "./token/createToken";
-import ensureSameToken from "./token/ensureSameToken";
-import isSameToken from "./token/isSameToken";
-
-export const token = {
-  appendDecimals,
-  createToken,
-  ensureSameToken,
-  isSameToken
-};
+import * as TokenExport from "./token";
+export { default as IToken } from "./token/IToken";
+export const Token = TokenExport;

@@ -1,7 +1,7 @@
-interface Token {
+interface IToken {
   readonly symbol: string;
   readonly address?: string;
   readonly decimals: number;
 }
 
-export default Token;
+export default IToken;
