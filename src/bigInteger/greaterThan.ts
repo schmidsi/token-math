@@ -1,12 +1,7 @@
-import * as BN from "bn.js";
+import bnCall from "./bnCall";
 import BigInteger from "./BigInteger";
 
-const greaterThan = (a: BigInteger, b: BigInteger): boolean => {
-  if (typeof BigInt !== undefined) {
-    return BigInt(a.value) > BigInt(b.value);
-  } else {
-    return new BN(a).gt(b);
-  }
-};
+const greaterThan = (a: BigInteger, b: BigInteger): boolean =>
+  bnCall.toBool("gt", a, b);
 
 export default greaterThan;

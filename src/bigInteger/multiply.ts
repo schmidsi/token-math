@@ -1,12 +1,7 @@
-import * as BN from "bn.js";
+import bnCall from "./bnCall";
 import BigInteger from "./BigInteger";
 
-const multiply = (a: BigInteger, b: BigInteger): BigInteger => {
-  if (typeof BigInt !== undefined) {
-    return new BigInteger(BigInt(a.value) * BigInt(b.value));
-  } else {
-    return new BN(a).mul(b);
-  }
-};
+const multiply = (a: BigInteger, b: BigInteger): BigInteger =>
+  bnCall.toBigInteger("mul", a, b);
 
 export default multiply;

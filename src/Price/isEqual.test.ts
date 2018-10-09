@@ -31,4 +31,6 @@ const toBeEqual = (received, expected) =>
           )}`
       };
 
+test("toBeEqual", () => {});
+
 export default toBeEqual;

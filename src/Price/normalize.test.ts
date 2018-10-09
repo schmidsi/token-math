@@ -47,7 +47,8 @@ test("ETH/USD", () => {
   const result = normalize(price);
   const expected = getPrice(
     createQuantity(eth, "1000000000000000000"),
-    createQuantity(usd, 22862)
+    createQuantity(usd, 22862),
+    true
   );
 
   expect(result).toBeEqual(expected);

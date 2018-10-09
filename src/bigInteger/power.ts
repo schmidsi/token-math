@@ -1,12 +1,7 @@
-import * as BN from "bn.js";
+import bnCall from "./bnCall";
 import BigInteger from "./BigInteger";
 
-const power = (a: BigInteger, b: BigInteger): BigInteger => {
-  if (typeof BigInt !== undefined) {
-    return new BigInteger(BigInt(a.value) ** BigInt(b.value));
-  } else {
-    return new BN(a).pow(b);
-  }
-};
+const power = (a: BigInteger, b: BigInteger): BigInteger =>
+  bnCall.toBigInteger("pow", a, b);
 
 export default power;

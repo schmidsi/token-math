@@ -1,7 +1,7 @@
 import BigInteger from "../bigInteger/BigInteger";
 import isEqual from "./isEqual";
 
-import getPrice from "./getPrice";
+import cancelDown from "./cancelDown";
 
 const quantityA1 = {
   symbol: "TKNA",
@@ -17,8 +17,8 @@ const quantityB1 = {
   quantity: new BigInteger(20000)
 };
 
-test("getPrice", () => {
-  const result = getPrice(quantityA1, quantityB1);
+test("cancelDown", () => {
+  const result = cancelDown({ base: quantityA1, quote: quantityB1 });
   const expected = {
     base: {
       symbol: "TKNA",

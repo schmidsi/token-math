@@ -1,12 +1,7 @@
-import * as BN from "bn.js";
+import bnCall from "./bnCall";
 import BigInteger from "./BigInteger";
 
-const subtract = (a: BigInteger, b: BigInteger): BigInteger => {
-  if (typeof BigInt !== undefined) {
-    return new BigInteger(BigInt(a.value) - BigInt(b.value));
-  } else {
-    return new BN(a).sub(b);
-  }
-};
+const subtract = (a: BigInteger, b: BigInteger): BigInteger =>
+  bnCall.toBigInteger("sub", a, b);
 
 export default subtract;
