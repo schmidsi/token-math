@@ -4,6 +4,10 @@ import IQuantity from "quantity/IQuantity";
 import createQuantity from "../Quantity/createQuantity";
 import IPrice from "./IPrice";
 
+/**
+ * Gets the price from a given base and quote quantity.
+ * It also cancels down the quantities if possible.
+ */
 const getPrice = (base: IQuantity, quote: IQuantity): IPrice => {
   const gcd = getGreatestCommonDivisor(base.quantity, quote.quantity);
 

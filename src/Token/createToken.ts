@@ -1,8 +1,13 @@
 import IToken from "./IToken";
 
-const createToken = (symbol: string): IToken => ({
+const createToken = (
+  symbol: string,
+  address?: string,
+  decimals: number = 18
+): IToken => ({
   symbol,
-  decimals: 18
+  address,
+  decimals
 });
 
 export default createToken;
