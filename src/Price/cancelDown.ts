@@ -1,6 +1,6 @@
 import getGreatestCommonDivisor from "../bigInteger/getGreatestCommonDivisor";
 import divide from "../bigInteger/divide";
-import createQuantity from "../Quantity/createQuantity";
+import createQuantity from "../quantity/createQuantity";
 import IPrice from "./IPrice";
 
 /**

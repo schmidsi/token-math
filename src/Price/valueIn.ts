@@ -2,8 +2,8 @@ import multiply from "../bigInteger/multiply";
 import divide from "../bigInteger/divide";
 import IPrice from "./IPrice";
 import IQuantity from "quantity/IQuantity";
-import createQuantity from "../Quantity/createQuantity";
-import isSameToken from "../Token/isSameToken";
+import createQuantity from "../quantity/createQuantity";
+import isSameToken from "../token/isSameToken";
 import ensure from "../utils/ensure";
 
 const valueIn = (price: IPrice, quantity: IQuantity): IQuantity => {
