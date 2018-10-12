@@ -1,7 +1,7 @@
 {
   "name": "@melonproject/token-math",
   "description": "A small helper library to do precision safe calculations",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "private": false,
   "license": "MIT",
