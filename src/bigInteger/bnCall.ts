@@ -7,8 +7,8 @@ export const toBool = (
   a: BigInteger,
   b?: BigInteger
 ): boolean => {
-  const bna = new BN(a.value);
-  const bnb = b && new BN(b.value);
+  const bna = new BN(a.toString());
+  const bnb = b && new BN(b.toString());
   return bna[method](bnb);
 };
 
@@ -17,8 +17,8 @@ export const toBigInteger = (
   a: BigInteger,
   b: BigInteger
 ): BigInteger => {
-  const bna = new BN(a.value);
-  const bnb = new BN(b.value);
+  const bna = new BN(a.toString());
+  const bnb = new BN(b.toString());
   const bnResult = bna[method](bnb);
   return new BigInteger(bnResult.toString());
 };

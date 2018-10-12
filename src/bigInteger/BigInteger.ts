@@ -9,7 +9,7 @@ import * as BN from "bn.js";
  * TODO: Remove dependency on BN.js.
  */
 class BigInteger {
-  readonly value: string;
+  private readonly value: string;
 
   constructor(value: number | string | BigInteger) {
     if (value instanceof BigInteger) {

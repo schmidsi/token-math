@@ -11,3 +11,4 @@ export { default as modulo } from "./modulo";
 export { default as multiply } from "./multiply";
 export { default as power } from "./power";
 export { default as subtract } from "./subtract";
+export { default as toBI } from "./toBI";
