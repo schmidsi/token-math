@@ -1,4 +1,4 @@
-import IQuantity from "quantity/IQuantity";
+import IQuantity from "../quantity/IQuantity";
 
 interface IPrice {
   readonly base: IQuantity;
