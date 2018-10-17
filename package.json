@@ -15,7 +15,8 @@
     "node": "^10.4.0"
   },
   "dependencies": {
-    "bn.js": "^4.11.8"
+    "bn.js": "^4.11.8",
+    "web3-utils": "^1.0.0-beta.36"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
