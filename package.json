@@ -12,7 +12,7 @@
     "prepare": "yarn transpile && yarn syncPkg && yarn test:dist",
     "syncPkg": "ts-node scripts/syncPkg",
     "test:dist": "jest dist",
-    "test": "jest src",
+    "test": "yarn transpile && jest",
     "transpile": "yarn rimraf dist && tsc"
   },
   "engines": {
