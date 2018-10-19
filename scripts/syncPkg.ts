@@ -14,7 +14,7 @@ const newSrcPkg = {
 };
 
 const distPkg = {
-  ...srcPkg,
+  ...newSrcPkg,
   main: "index.js"
 };
 
@@ -22,3 +22,5 @@ mkdirp.sync("./dist");
 
 fs.writeFileSync("./src/package.json", JSON.stringify(newSrcPkg, null, 2));
 fs.writeFileSync("./dist/package.json", JSON.stringify(distPkg, null, 2));
+
+fs.copyFileSync("./.npmignore", "./dist/.npmignore");

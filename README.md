@@ -8,9 +8,17 @@ _This is heavily work in progress. But feel free to open issues/pull-request wit
 
 - Fully type script typed
 - Reusable
-- Functional & object-oriented API ready (flexible API, see below)
-- Use https://github.com/tc39/proposal-bigint but with a fallback
 - Reuse JS-native functions like: toFixed, toNumber, ...
+
+## Development
+
+This repository holds a special structure to facilitate TypeScript module development. And has therefore 3 `package.json`s:
+
+- `./package.json`: The root package which is a lerna workspace package. It should contain all devDependencies (add with `lerna add -D -W package`)
+- `./src/package.json`: The actual TypeScript source. Contains dependencies and all other important fields. You should be able to `yarn link` inside this folder to link directly the TypeScript files into your consuming package.
+- `./dist/package.json`: The src/package.json copied over and slightly modified.
+
+To learn more about this workflow, look at [scripts/syncPkg.ts](./scripts/syncPkg.ts).
 
 ## TODO
 
@@ -27,11 +35,6 @@ _This is heavily work in progress. But feel free to open issues/pull-request wit
 - [ ] BigInt fallback (BigInteger)
 - [ ] Quantity.toFixed
 - [ ] Test ES5 Build
-
-## Questions
-
-- Make the OO interface an own package?
-- Code generation?
 
 ## Flexible API
 
