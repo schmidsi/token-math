@@ -1,12 +1,12 @@
-import { Token, BigInteger } from "./index";
+import { token, bigInteger } from "./index";
 
 test("Functional API", () => {
-  const eth = Token.createToken("ETH");
+  const eth = token.createToken("ETH");
   expect(eth.decimals).toBe(18);
 
-  const bi = BigInteger.toBI("0x123");
+  const bi = bigInteger.toBI("0x123");
   expect(bi.toString()).toBe("291");
 
-  const throughConstructor = new BigInteger("0x123");
-  expect(bi.toString()).toBe("291");
+  const throughConstructor = new bigInteger.BigInteger("0x123");
+  expect(throughConstructor.toString()).toBe("291");
 });

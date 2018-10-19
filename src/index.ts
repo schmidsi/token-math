@@ -1,25 +1,13 @@
 // We only export BigInteger from bigInteger here and omit the helper functions
 // to avoid confusion.
 
-import * as BigIntegerExport from "./bigInteger/index";
-import { default as BigIntegerClass } from "./bigInteger/BigInteger";
-export const BigInteger = Object.assign(BigIntegerClass, BigIntegerExport);
+export const bigInteger = require("./bigInteger/index");
 
-import * as PriceExport from "./price/index";
 export { default as PriceInterface } from "./price/PriceInterface";
-export const Price = PriceExport;
+export const price = require("./price/index");
 
-import * as QuantityExport from "./quantity/index";
 export { default as QuantityInterface } from "./quantity/QuantityInterface";
-export const Quantity = QuantityExport;
+export const quantity = require("./quantity/index");
 
-import * as TokenExport from "./token/index";
 export { default as TokenInterface } from "./token/TokenInterface";
-export const Token = TokenExport;
-
-export default {
-  BigInteger,
-  Price,
-  Quantity,
-  Token
-};
+export const token = require("./token/index");
