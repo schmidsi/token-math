@@ -6,15 +6,15 @@ import { default as BigIntegerClass } from "./bigInteger/BigInteger";
 export const BigInteger = Object.assign(BigIntegerClass, BigIntegerExport);
 
 import * as PriceExport from "./price/index";
-export { default as IPrice } from "./price/IPrice";
+export { default as PriceInterface } from "./price/PriceInterface";
 export const Price = PriceExport;
 
 import * as QuantityExport from "./quantity/index";
-export { default as IQuantity } from "./quantity/IQuantity";
+export { default as QuantityInterface } from "./quantity/QuantityInterface";
 export const Quantity = QuantityExport;
 
 import * as TokenExport from "./token/index";
-export { default as IToken } from "./token/IToken";
+export { default as TokenInterface } from "./token/TokenInterface";
 export const Token = TokenExport;
 
 export default {

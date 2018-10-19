@@ -1,9 +1,9 @@
 import ensure from "../utils/ensure";
 
-import IToken from "./IToken";
+import TokenInterface from "./TokenInterface";
 import isSameToken from "./isSameToken";
 
-const ensureSameToken = (a: IToken, b: IToken): void =>
+const ensureSameToken = (a: TokenInterface, b: TokenInterface): void =>
   ensure(isSameToken(a, b), "Require same tokens", { a, b });
 
 export default ensureSameToken;

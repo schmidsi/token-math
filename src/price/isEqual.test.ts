@@ -1,10 +1,10 @@
-import IPrice from "./IPrice";
+import PriceInterface from "./PriceInterface";
 import isEqual from "./isEqual";
 
 declare global {
   namespace jest {
     interface Matchers<R> {
-      toBeEqual: (arg: IPrice) => {};
+      toBeEqual: (arg: PriceInterface) => {};
     }
   }
 }

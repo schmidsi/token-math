@@ -1,12 +1,12 @@
 import getGreatestCommonDivisor from "../bigInteger/getGreatestCommonDivisor";
 import divide from "../bigInteger/divide";
 import createQuantity from "../quantity/createQuantity";
-import IPrice from "./IPrice";
+import PriceInterface from "./PriceInterface";
 
 /**
  * Cancels down the quantities if possible.
  */
-const cancelDown = (price: IPrice): IPrice => {
+const cancelDown = (price: PriceInterface): PriceInterface => {
   const gcd = getGreatestCommonDivisor(
     price.base.quantity,
     price.quote.quantity

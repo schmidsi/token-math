@@ -1,7 +1,7 @@
 import normalize from "./normalize";
-import IPrice from "./IPrice";
+import PriceInterface from "./PriceInterface";
 
-const toAtomic = (price: IPrice): string =>
+const toAtomic = (price: PriceInterface): string =>
   normalize(price).quote.quantity.toString();
 
 export default toAtomic;

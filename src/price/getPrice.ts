@@ -1,16 +1,16 @@
-import IQuantity from "../quantity/IQuantity";
+import QuantityInterface from "../quantity/QuantityInterface";
 
-import IPrice from "./IPrice";
+import PriceInterface from "./PriceInterface";
 import cancelDown from "./cancelDown";
 
 /**
  * Gets the price of two quantites. Cancels down by default
  */
 const getPrice = (
-  base: IQuantity,
-  quote: IQuantity,
+  base: QuantityInterface,
+  quote: QuantityInterface,
   preventCancelDown: boolean = false
-): IPrice => {
+): PriceInterface => {
   const price = { base, quote };
   const result = preventCancelDown ? price : cancelDown(price);
 

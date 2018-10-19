@@ -1,12 +1,15 @@
 import multiply from "../bigInteger/multiply";
 import divide from "../bigInteger/divide";
-import IPrice from "./IPrice";
-import IQuantity from "../quantity/IQuantity";
+import PriceInterface from "./PriceInterface";
+import QuantityInterface from "../quantity/QuantityInterface";
 import createQuantity from "../quantity/createQuantity";
 import isSameToken from "../token/isSameToken";
 import ensure from "../utils/ensure";
 
-const valueIn = (price: IPrice, quantity: IQuantity): IQuantity => {
+const valueIn = (
+  price: PriceInterface,
+  quantity: QuantityInterface
+): QuantityInterface => {
   ensure(
     isSameToken(price.base, quantity) || isSameToken(price.quote, quantity),
     "Require price to contain token to convert",

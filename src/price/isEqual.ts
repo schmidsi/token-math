@@ -1,7 +1,7 @@
 import isEqualQuantity from "../quantity/isEqual";
-import IPrice from "./IPrice";
+import PriceInterface from "./PriceInterface";
 
-const isEqual = (a: IPrice, b: IPrice): boolean =>
+const isEqual = (a: PriceInterface, b: PriceInterface): boolean =>
   isEqualQuantity(a.base, b.base) && isEqualQuantity(a.quote, b.quote);
 
 export default isEqual;

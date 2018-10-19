@@ -1,9 +1,9 @@
 import greaterThanBigInteger from "../bigInteger/greaterThan";
 import isSameToken from "../token/isSameToken";
 
-import IQuantity from "./IQuantity";
+import QuantityInterface from "./QuantityInterface";
 
-const greaterThan = (a: IQuantity, b: IQuantity) =>
+const greaterThan = (a: QuantityInterface, b: QuantityInterface) =>
   isSameToken(a, b) && greaterThanBigInteger(a.quantity, b.quantity);
 
 export default greaterThan;

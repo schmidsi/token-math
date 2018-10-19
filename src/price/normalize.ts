@@ -7,7 +7,7 @@ import {
   power
 } from "../bigInteger";
 import { createQuantity } from "../quantity";
-import IPrice from "./IPrice";
+import PriceInterface from "./PriceInterface";
 
 /**
  * Takes a price and normalizes it:
@@ -18,7 +18,7 @@ import IPrice from "./IPrice";
  * Example: For a token with 4 decimals the normalized quantity is:
  * 100000
  */
-const normalize = (price: IPrice): IPrice => {
+const normalize = (price: PriceInterface): PriceInterface => {
   const factor = divide(
     power(new BigInteger(10), new BigInteger(price.base.decimals)),
     price.base.quantity

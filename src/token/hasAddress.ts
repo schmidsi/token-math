@@ -1,5 +1,5 @@
-import IToken from "./IToken";
+import TokenInterface from "./TokenInterface";
 
-const hasAddress = (candidate: IToken) => !!candidate.address;
+const hasAddress = (candidate: TokenInterface) => !!candidate.address;
 
 export default hasAddress;

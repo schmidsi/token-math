@@ -1,12 +1,12 @@
 import BigInteger from "../bigInteger/BigInteger";
 import createToken from "../token/createToken";
-import IToken from "../token/IToken";
-import IQuantity from "./IQuantity";
+import TokenInterface from "../token/TokenInterface";
+import QuantityInterface from "./QuantityInterface";
 
 const createQuantity = (
-  tokenOrSymbol: IToken | string,
+  tokenOrSymbol: TokenInterface | string,
   bigInteger: number | string | BigInteger
-): IQuantity => {
+): QuantityInterface => {
   const token =
     typeof tokenOrSymbol === "string"
       ? createToken(tokenOrSymbol)

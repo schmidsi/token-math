@@ -1,6 +1,6 @@
-import IPrice from "./IPrice";
+import PriceInterface from "./PriceInterface";
 
-const toFixed = (price: IPrice, decimals: number = 6): string =>
+const toFixed = (price: PriceInterface, decimals: number = 6): string =>
   (
     (parseFloat(price.quote.quantity.toString()) /
       parseFloat(price.base.quantity.toString())) *
