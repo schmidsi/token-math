@@ -15,26 +15,10 @@ _This is heavily work in progress. But feel free to open issues/pull-request wit
 This repository holds a special structure to facilitate TypeScript module development. And has therefore 3 `package.json`s:
 
 - `./package.json`: The root package which is a lerna workspace package. It should contain all devDependencies (add with `lerna add -D -W package`)
-- `./src/package.json`: The actual TypeScript source. Contains dependencies and all other important fields. You should be able to `yarn link` inside this folder to link directly the TypeScript files into your consuming package.
+- `./src/package.json`: The actual TypeScript source. Contains dependencies and all other important fields. You should be able to `yarn link` inside this folder to link directly the TypeScript files into your consuming package without modifying tsconfig.json.
 - `./dist/package.json`: The src/package.json copied over and slightly modified.
 
 To learn more about this workflow, look at [scripts/syncPkg.ts](./scripts/syncPkg.ts).
-
-## TODO
-
-- [x] toBigInt function
-- [x] Token Type: Symbol, Address, Decimals
-- [x] Quantity Type: Token, Quantity in token
-- [x] Price Type: BaseToken, QuoteToken, canceled down buy/sell
-- [x] getPrice(quoteQuantity, baseQuantity): Price
-- [x] valueIn (BaseToken \* Price or QuoteToken / Price) // Check if meaningful
-- [x] add/subtract (check if same tokens)
-- [ ] getPriceChange(): Number
-- [x] Folder structure: Maybe overkill with all reexports. Better: Classes as default exports (for convenience), functions with deep export
-- [ ] Typedocs
-- [ ] BigInt fallback (BigInteger)
-- [ ] Quantity.toFixed
-- [ ] Test ES5 Build
 
 ## Flexible API
 
