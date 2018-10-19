@@ -20,22 +20,22 @@ import PriceInterface from "./PriceInterface";
  */
 const normalize = (price: PriceInterface): PriceInterface => {
   const factor = divide(
-    power(new BigInteger(10), new BigInteger(price.base.decimals)),
+    power(new BigInteger(10), new BigInteger(price.base.token.decimals)),
     price.base.quantity
   );
 
   const rest = modulo(
-    power(new BigInteger(10), new BigInteger(price.base.decimals)),
+    power(new BigInteger(10), new BigInteger(price.base.token.decimals)),
     price.base.quantity
   );
 
   const base = createQuantity(
-    price.base,
+    price.base.token,
     add(multiply(price.base.quantity, factor), rest)
   );
 
   const quote = createQuantity(
-    price.quote,
+    price.quote.token,
     multiply(price.quote.quantity, factor)
   );
 

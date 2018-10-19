@@ -11,21 +11,22 @@ const valueIn = (
   quantity: QuantityInterface
 ): QuantityInterface => {
   ensure(
-    isSameToken(price.base, quantity) || isSameToken(price.quote, quantity),
+    isSameToken(price.base.token, quantity.token) ||
+      isSameToken(price.quote.token, quantity.token),
     "Require price to contain token to convert",
     { price, quantity }
   );
 
-  return isSameToken(price.base, quantity)
+  return isSameToken(price.base.token, quantity.token)
     ? createQuantity(
-        price.quote,
+        price.quote.token,
         divide(
           multiply(quantity.quantity, price.quote.quantity),
           price.base.quantity
         )
       )
     : createQuantity(
-        price.base,
+        price.base.token,
         multiply(
           divide(quantity.quantity, price.quote.quantity),
           price.base.quantity

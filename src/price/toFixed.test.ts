@@ -5,15 +5,19 @@ import toFixed from "./toFixed";
 test("toFixed", () => {
   const price = {
     base: {
-      symbol: "TKNA",
-      address: "0x0",
-      decimals: 3,
+      token: {
+        symbol: "TKNA",
+        address: "0x0",
+        decimals: 3
+      },
       quantity: new BigInteger(1)
     },
     quote: {
-      symbol: "TKNB",
-      address: "0x1",
-      decimals: 4,
+      token: {
+        symbol: "TKNB",
+        address: "0x1",
+        decimals: 4
+      },
       quantity: new BigInteger(10)
     }
   };
@@ -22,15 +26,19 @@ test("toFixed", () => {
 
   const ethInBtc = {
     base: {
-      symbol: "ETH",
-      address: "0x234",
-      decimals: 18,
+      token: {
+        symbol: "ETH",
+        address: "0x234",
+        decimals: 18
+      },
       quantity: new BigInteger("1000000000000000000")
     },
     quote: {
-      symbol: "BTC",
-      address: "0x123",
-      decimals: 8,
+      token: {
+        symbol: "BTC",
+        address: "0x123",
+        decimals: 8
+      },
       quantity: new BigInteger(4380219)
     }
   };
@@ -39,14 +47,18 @@ test("toFixed", () => {
 
   const btcInUsd = {
     base: {
-      symbol: "BTC",
-      address: "0x123",
-      decimals: 8,
+      token: {
+        symbol: "BTC",
+        address: "0x123",
+        decimals: 8
+      },
       quantity: new BigInteger(100000000)
     },
     quote: {
-      symbol: "USD",
-      decimals: 2,
+      token: {
+        symbol: "USD",
+        decimals: 2
+      },
       quantity: new BigInteger(645861)
     }
   };

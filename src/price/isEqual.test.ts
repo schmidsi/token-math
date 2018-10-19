@@ -10,8 +10,8 @@ declare global {
 }
 
 const displayPrice = price =>
-  `${price.base.quantity}${price.base.symbol}/${price.quote.quantity}${
-    price.quote.symbol
+  `${price.base.quantity}${price.base.token.symbol}/${price.quote.quantity}${
+    price.quote.token.symbol
   }`;
 
 const toBeEqual = (received, expected) =>

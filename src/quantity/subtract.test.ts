@@ -4,32 +4,40 @@ import isEqual from "./isEqual";
 import subtract from "./subtract";
 
 const quantityA1 = {
-  symbol: "TKNA",
-  address: "0x0",
-  decimals: 3,
+  token: {
+    symbol: "TKNA",
+    address: "0x0",
+    decimals: 3
+  },
   quantity: new BigInteger(2000)
 };
 
 const quantityA2 = {
-  symbol: "TKNA",
-  address: "0x0",
-  decimals: 3,
+  token: {
+    symbol: "TKNA",
+    address: "0x0",
+    decimals: 3
+  },
   quantity: new BigInteger(3000)
 };
 
 const quantityB1 = {
-  symbol: "TKNB",
-  address: "0x1",
-  decimals: 4,
+  token: {
+    symbol: "TKNB",
+    address: "0x1",
+    decimals: 4
+  },
   quantity: new BigInteger(20000)
 };
 
 test("subtract", () => {
   const result = subtract(quantityA2, quantityA1);
   const expected = {
-    symbol: "TKNA",
-    address: "0x0",
-    decimals: 3,
+    token: {
+      symbol: "TKNA",
+      address: "0x0",
+      decimals: 3
+    },
     quantity: new BigInteger(1000)
   };
 

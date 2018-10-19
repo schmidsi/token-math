@@ -13,8 +13,8 @@ const cancelDown = (price: PriceInterface): PriceInterface => {
   );
 
   return {
-    base: createQuantity(price.base, divide(price.base.quantity, gcd)),
-    quote: createQuantity(price.quote, divide(price.quote.quantity, gcd))
+    base: createQuantity(price.base.token, divide(price.base.quantity, gcd)),
+    quote: createQuantity(price.quote.token, divide(price.quote.quantity, gcd))
   };
 };
 

@@ -7,9 +7,9 @@ export const subtract = (
   a: QuantityInterface,
   b: QuantityInterface
 ): QuantityInterface => {
-  ensureSameToken(a, b);
+  ensureSameToken(a.token, b.token);
 
-  return createQuantity(a, bigIntegerSubtract(a.quantity, b.quantity));
+  return createQuantity(a.token, bigIntegerSubtract(a.quantity, b.quantity));
 };
 
 export default subtract;

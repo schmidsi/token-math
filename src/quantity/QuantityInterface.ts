@@ -1,7 +1,8 @@
 import BigInteger from "../bigInteger/BigInteger";
 import TokenInterface from "../token/TokenInterface";
 
-interface QuantityInterface extends TokenInterface {
+interface QuantityInterface {
+  readonly token: TokenInterface;
   readonly quantity: BigInteger;
 }
 
