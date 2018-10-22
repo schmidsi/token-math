@@ -10,9 +10,21 @@
     "bn.js": "^4.11.8",
     "web3-utils": "^1.0.0-beta.36"
   },
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
   "engines": {
     "node": "^10.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melonproject/token-lab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/melonproject/token-lab/issues"
+  },
+  "homepage": "https://github.com/melonproject/token-lab#readme",
+  "author": "Simon Emanuel Schmid <simon@melonport.com>",
+  "contributors": [
+    "Travis Jacobs <travis@melonport.com>"
+  ]
 }
