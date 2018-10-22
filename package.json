@@ -15,6 +15,16 @@
     "test": "yarn transpile && jest",
     "transpile": "yarn rimraf dist && tsc"
   },
+  "keywords": [
+    "Ethereum",
+    "Token",
+    "ERC20",
+    "Math",
+    "Safe Math",
+    "TypeScript",
+    "Functional Programming",
+    "Functional TypeScript"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/melonproject/token-lab.git"
