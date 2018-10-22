@@ -1,6 +1,8 @@
 // We only export BigInteger from bigInteger here and omit the helper functions
 // to avoid confusion.
 
+export const address = require("./address/index");
+
 export const bigInteger = require("./bigInteger/index");
 
 export { default as PriceInterface } from "./price/PriceInterface";
