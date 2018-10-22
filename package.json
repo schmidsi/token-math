@@ -4,10 +4,10 @@
     "src"
   ],
   "private": true,
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "scripts": {
-    "deploy": "yarn prepare && cd dist && yarn publish",
+    "deploy": "yarn version --patch && yarn prepare && cd dist && yarn publish",
     "dev": "yarn jest --watch src",
     "prepare": "yarn transpile && yarn syncPkg && yarn test:dist",
     "syncPkg": "ts-node scripts/syncPkg",
