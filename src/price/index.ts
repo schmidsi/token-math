@@ -5,3 +5,4 @@ export { default as normalize } from "./normalize";
 export { default as toAtomic } from "./toAtomic";
 export { default as toFixed } from "./toFixed";
 export { default as valueIn } from "./valueIn";
+export { default as PriceInterface } from "./PriceInterface";

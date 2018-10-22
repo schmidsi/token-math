@@ -5,3 +5,4 @@ export { default as hasAddress } from "./hasAddress";
 export { default as isSameToken } from "./isSameToken";
 export { default as isToken } from "./isToken";
 export { default as log } from "./log";
+export { default as TokenInterface } from "./TokenInterface"; 
