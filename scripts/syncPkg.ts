@@ -24,3 +24,4 @@ fs.writeFileSync("./src/package.json", JSON.stringify(newSrcPkg, null, 2));
 fs.writeFileSync("./dist/package.json", JSON.stringify(distPkg, null, 2));
 
 fs.copyFileSync("./.npmignore", "./dist/.npmignore");
+fs.copyFileSync("./README.md", "./dist/README.md");
