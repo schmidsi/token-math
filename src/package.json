@@ -10,7 +10,7 @@
     "bn.js": "^4.11.8",
     "web3-utils": "^1.0.0-beta.36"
   },
-  "version": "0.0.11",
+  "version": "0.0.13",
   "license": "MIT",
   "engines": {
     "node": "^10.4.0"
@@ -26,5 +26,15 @@
   "author": "Simon Emanuel Schmid <simon@melonport.com>",
   "contributors": [
     "Travis Jacobs <travis@melonport.com>"
+  ],
+  "keywords": [
+    "Ethereum",
+    "Token",
+    "ERC20",
+    "Math",
+    "Safe Math",
+    "TypeScript",
+    "Functional Programming",
+    "Functional TypeScript"
   ]
 }
