@@ -6,6 +6,7 @@
     "declaration": true,
     "outDir": "./dist",
     "baseUrl": "src",
+    "lib": ["es2017"],
     "paths": {
       "~/*": ["src/*"]
     }

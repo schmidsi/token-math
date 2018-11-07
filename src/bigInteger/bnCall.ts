@@ -23,7 +23,14 @@ export const toBigInteger = (
   return new BigInteger(bnResult.toString());
 };
 
+export const toString = (method: string, a: BigInteger): string => {
+  const bn = new BN(a.toString());
+  const result = bn[method]();
+  return result;
+};
+
 export default {
   toBool,
-  toBigInteger
+  toBigInteger,
+  toString
 };
