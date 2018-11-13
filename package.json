@@ -33,9 +33,6 @@
     "url": "https://github.com/melonproject/token-lab/issues"
   },
   "homepage": "https://github.com/melonproject/token-lab#readme",
-  "engines": {
-    "node": "^10.4.0"
-  },
   "author": "Simon Emanuel Schmid <simon@melonport.com>",
   "contributors": [
     "Travis Jacobs <travis@melonport.com>"
