@@ -4,7 +4,7 @@
     "src"
   ],
   "private": true,
-  "version": "0.0.17",
+  "version": "0.0.18",
   "license": "MIT",
   "scripts": {
     "deploy": "yarn version --patch && yarn prepare && cd dist && yarn publish --no-git-tag-version --non-interactive && git add ../src/package.json && git commit --amend --no-edit && git push --tags",
@@ -33,9 +33,6 @@
     "url": "https://github.com/melonproject/token-lab/issues"
   },
   "homepage": "https://github.com/melonproject/token-lab#readme",
-  "engines": {
-    "node": "^10.4.0"
-  },
   "author": "Simon Emanuel Schmid <simon@melonport.com>",
   "contributors": [
     "Travis Jacobs <travis@melonport.com>"
