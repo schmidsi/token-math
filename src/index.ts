@@ -1,5 +1,7 @@
-export const address = require("./address/index");
-export const bigInteger = require("./bigInteger/index");
-export const price = require("./price/index");
-export const quantity = require("./quantity/index");
-export const token = require("./token/index");
+import * as address from "./address/index";
+import * as bigInteger from "./bigInteger/index";
+import * as price from "./price/index";
+import * as quantity from "./quantity/index";
+import * as token from "./token/index";
+
+export { address, bigInteger, price, quantity, token };
