@@ -13,7 +13,9 @@ test("Happy path", () => {
   const fromHex = new BigInteger("0xa");
   expect(fromHex.toString()).toBe("10");
 
-  const fn = (a: BigInteger) => a;
-  // This does not work in TS but should work in JS
-  // expect(fn("asdf"))
+  expect(() => new BigInteger("0.1")).toThrow();
+  expect(() => new BigInteger("0.5")).toThrow();
+  expect(() => new BigInteger(0.5)).toThrow();
+  expect(() => new BigInteger("1.7234")).toThrow();
+  expect(() => new BigInteger("0x123.123")).toThrow();
 });
