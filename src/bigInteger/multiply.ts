@@ -1,7 +1,7 @@
 import bnCall from "./bnCall";
 import BigInteger from "./BigInteger";
 
-const multiply = (a: BigInteger, b: BigInteger): BigInteger =>
-  bnCall.toBigInteger("mul", a, b);
+const multiply = (...bigints: BigInteger[]): BigInteger =>
+  bigints.reduce((a, b) => bnCall.toBigInteger("mul", a, b));
 
 export default multiply;
