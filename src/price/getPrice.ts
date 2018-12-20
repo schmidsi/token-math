@@ -1,20 +1,15 @@
 import QuantityInterface from "../quantity/QuantityInterface";
 
 import PriceInterface from "./PriceInterface";
-import cancelDown from "./cancelDown";
+import createPrice from "./createPrice";
 
-/**
- * Gets the price of two quantites. Cancels down by default
- */
 const getPrice = (
   base: QuantityInterface,
   quote: QuantityInterface,
-  preventCancelDown: boolean = false
+  preventCancelDown?: boolean
 ): PriceInterface => {
-  const price = { base, quote };
-  const result = preventCancelDown ? price : cancelDown(price);
-
-  return result;
+  console.warn("DEPRECATED. Please use createPrice instead.");
+  return createPrice(base, quote, preventCancelDown);
 };
 
 export default getPrice;

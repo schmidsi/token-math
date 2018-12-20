@@ -1,4 +1,5 @@
 export { default as cancelDown } from "./cancelDown";
+export { default as createPrice } from "./createPrice";
 export { default as getPrice } from "./getPrice";
 export { default as isEqual } from "./isEqual";
 export { default as normalize } from "./normalize";

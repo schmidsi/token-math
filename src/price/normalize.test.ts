@@ -1,6 +1,6 @@
 import { createToken } from "../token";
 import { createQuantity } from "../quantity";
-import { getPrice } from ".";
+import { createPrice } from ".";
 import toBeEqual from "./isEqual.test";
 
 import normalize from "./normalize";
@@ -15,12 +15,12 @@ const mln = createToken("MLN");
 const btc = createToken("BTC", null, 8);
 
 test("normalize atomic", () => {
-  const price = getPrice(
+  const price = createPrice(
     createQuantity(tokenA, "3"),
     createQuantity(tokenB, "1")
   );
   const result = normalize(price);
-  const expected = getPrice(
+  const expected = createPrice(
     createQuantity(tokenA, "1000"),
     createQuantity(tokenB, "333")
   );
@@ -29,25 +29,25 @@ test("normalize atomic", () => {
 });
 
 test("normalize decimals", () => {
-  const price = getPrice(
+  const price = createPrice(
     createQuantity(tokenA, "2000"),
     createQuantity(tokenB, "10000")
   );
   const result = normalize(price);
   const expected = normalize(
-    getPrice(createQuantity(tokenA, "1000"), createQuantity(tokenB, "5000"))
+    createPrice(createQuantity(tokenA, "1000"), createQuantity(tokenB, "5000"))
   );
 
   expect(result).toBeEqual(expected);
 });
 
 test("ETH/USD", () => {
-  const price = getPrice(
+  const price = createPrice(
     createQuantity(eth, "2000000000000000000"),
     createQuantity(usd, "45724")
   );
   const result = normalize(price);
-  const expected = getPrice(
+  const expected = createPrice(
     createQuantity(eth, "1000000000000000000"),
     createQuantity(usd, "22862"),
     true
