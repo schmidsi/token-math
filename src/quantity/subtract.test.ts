@@ -21,6 +21,15 @@ const quantityA2 = {
   quantity: new BigInteger(3000)
 };
 
+const quantityA3 = {
+  token: {
+    symbol: "TKNA",
+    address: "0x0",
+    decimals: 3
+  },
+  quantity: new BigInteger(6000)
+};
+
 const quantityB1 = {
   token: {
     symbol: "TKNB",
@@ -44,4 +53,18 @@ test("subtract", () => {
   expect(isEqual(result, expected)).toBe(true);
 
   expect(() => subtract(quantityA1, quantityB1)).toThrow();
+});
+
+test("subtract multiple", () => {
+  const result = subtract(quantityA3, quantityA2, quantityA1);
+  const expected = {
+    token: {
+      symbol: "TKNA",
+      address: "0x0",
+      decimals: 3
+    },
+    quantity: new BigInteger(1000)
+  };
+
+  expect(isEqual(result, expected)).toBe(true);
 });
