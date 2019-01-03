@@ -8,6 +8,7 @@ import {
 } from "../bigInteger";
 import { createQuantity } from "../quantity";
 import PriceInterface from "./PriceInterface";
+import cancelDown from "./cancelDown";
 
 /**
  * Takes a price and normalizes it:
@@ -15,28 +16,36 @@ import PriceInterface from "./PriceInterface";
  *
  * Warning: This is a destructive operation (?).
  *
- * Example: For a token with 4 decimals the normalized quantity is:
- * 100000
+ * Example: For a token with 4 decimals the normalized base quantity is:
+ * 10000
  */
 const normalize = (price: PriceInterface): PriceInterface => {
+  const cancelledDown = cancelDown(price);
+
   const factor = divide(
-    power(new BigInteger(10), new BigInteger(price.base.token.decimals)),
-    price.base.quantity
+    power(
+      new BigInteger(10),
+      new BigInteger(cancelledDown.base.token.decimals)
+    ),
+    cancelledDown.base.quantity
   );
 
   const rest = modulo(
-    power(new BigInteger(10), new BigInteger(price.base.token.decimals)),
-    price.base.quantity
+    power(
+      new BigInteger(10),
+      new BigInteger(cancelledDown.base.token.decimals)
+    ),
+    cancelledDown.base.quantity
   );
 
   const base = createQuantity(
-    price.base.token,
-    add(multiply(price.base.quantity, factor), rest)
+    cancelledDown.base.token,
+    add(multiply(cancelledDown.base.quantity, factor), rest)
   );
 
   const quote = createQuantity(
-    price.quote.token,
-    multiply(price.quote.quantity, factor)
+    cancelledDown.quote.token,
+    multiply(cancelledDown.quote.quantity, factor)
   );
 
   return {

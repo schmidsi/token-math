@@ -9,7 +9,7 @@ const getPrice = (
   preventCancelDown?: boolean
 ): PriceInterface => {
   console.warn("DEPRECATED. Please use createPrice instead.");
-  return createPrice(base, quote, preventCancelDown);
+  return createPrice(base, quote);
 };
 
 export default getPrice;
