@@ -22,7 +22,7 @@ test("toFixed", () => {
     }
   };
 
-  expect(toFixed(price)).toBe("1.000000");
+  expect(toFixed(price)).toBe("1.0000");
 
   const ethInBtc = {
     base: {
@@ -63,5 +63,5 @@ test("toFixed", () => {
     }
   };
 
-  expect(toFixed(btcInUsd)).toBe("6458.610000");
+  expect(toFixed(btcInUsd)).toBe("6458.61");
 });

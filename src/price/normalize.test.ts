@@ -1,6 +1,6 @@
 import { createToken } from "../token";
 import { createQuantity } from "../quantity";
-import { createPrice } from "./";
+import { createPrice, toFixed } from "./";
 import toBeEqual from "./isEqual.test";
 
 import normalize from "./normalize";
@@ -54,4 +54,21 @@ test("ETH/USD", () => {
   );
 
   expect(result).toBeEqual(expected);
+});
+
+test("Strange numbers", () => {
+  const price = createPrice(
+    createQuantity(tokenA, "4321"),
+    createQuantity(tokenB, "100000")
+  );
+
+  const result = normalize(price);
+
+  const expected = createPrice(
+    createQuantity(tokenA, "1000"),
+    createQuantity(tokenB, "23143")
+  );
+
+  expect(result).toBeEqual(expected);
+  expect(toFixed(result)).toBe(toFixed(price));
 });

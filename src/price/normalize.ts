@@ -9,6 +9,8 @@ import {
 import { createQuantity } from "../quantity";
 import PriceInterface from "./PriceInterface";
 import cancelDown from "./cancelDown";
+import { quantity } from "index";
+import toString from "bigInteger/toString";
 
 /**
  * Takes a price and normalizes it:
@@ -22,30 +24,20 @@ import cancelDown from "./cancelDown";
 const normalize = (price: PriceInterface): PriceInterface => {
   const cancelledDown = cancelDown(price);
 
-  const factor = divide(
-    power(
-      new BigInteger(10),
-      new BigInteger(cancelledDown.base.token.decimals)
-    ),
-    cancelledDown.base.quantity
-  );
-
-  const rest = modulo(
-    power(
-      new BigInteger(10),
-      new BigInteger(cancelledDown.base.token.decimals)
-    ),
-    cancelledDown.base.quantity
-  );
+  const factor =
+    10 ** cancelledDown.base.token.decimals /
+    parseFloat(`${cancelledDown.base.quantity}`);
 
   const base = createQuantity(
     cancelledDown.base.token,
-    add(multiply(cancelledDown.base.quantity, factor), rest)
+    Math.round(factor * parseFloat(`${cancelledDown.base.quantity}`)).toString()
   );
 
   const quote = createQuantity(
     cancelledDown.quote.token,
-    multiply(cancelledDown.quote.quantity, factor)
+    Math.round(
+      factor * parseFloat(`${cancelledDown.quote.quantity}`)
+    ).toString()
   );
 
   return {
