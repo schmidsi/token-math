@@ -3,7 +3,7 @@ import divide from "../bigInteger/divide";
 import PriceInterface from "./PriceInterface";
 import QuantityInterface from "../quantity/QuantityInterface";
 import createQuantity from "../quantity/createQuantity";
-import isSameToken from "../token/isSameToken";
+import isEqual from "../token/isEqual";
 import ensure from "../utils/ensure";
 
 const valueIn = (
@@ -11,13 +11,13 @@ const valueIn = (
   quantity: QuantityInterface
 ): QuantityInterface => {
   ensure(
-    isSameToken(price.base.token, quantity.token) ||
-      isSameToken(price.quote.token, quantity.token),
+    isEqual(price.base.token, quantity.token) ||
+      isEqual(price.quote.token, quantity.token),
     "Require price to contain token to convert",
     { price, quantity }
   );
 
-  return isSameToken(price.base.token, quantity.token)
+  return isEqual(price.base.token, quantity.token)
     ? createQuantity(
         price.quote.token,
         divide(

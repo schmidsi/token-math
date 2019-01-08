@@ -1,4 +1,4 @@
-import { isSameToken } from "./";
+import { isEqual } from ".";
 
 test("Checksummed and unchecksummed compare", () => {
   const checksummed = {
@@ -15,6 +15,6 @@ test("Checksummed and unchecksummed compare", () => {
     symbol: "TKN",
     decimals: 5
   };
-  expect(isSameToken(checksummed, unchecked)).toBe(true);
-  expect(isSameToken(checksummed, withoutAddress)).toBe(false);
+  expect(isEqual(checksummed, unchecked)).toBe(true);
+  expect(isEqual(checksummed, withoutAddress)).toBe(false);
 });

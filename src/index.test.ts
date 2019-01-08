@@ -1,4 +1,4 @@
-import { token, bigInteger } from "./index";
+import { token, bigInteger, isEqual } from "./index";
 
 test("Functional API", () => {
   const eth = token.createToken("ETH");
@@ -9,4 +9,7 @@ test("Functional API", () => {
 
   const throughConstructor = new bigInteger.BigInteger("0x123");
   expect(throughConstructor.toString()).toBe("291");
+
+  const eth2 = token.createToken("ETH");
+  expect(isEqual(eth, eth2)).toBe(true);
 });
