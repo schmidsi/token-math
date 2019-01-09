@@ -18,4 +18,5 @@ test("Happy path", () => {
   expect(() => new BigInteger(0.5)).toThrow();
   expect(() => new BigInteger("1.7234")).toThrow();
   expect(() => new BigInteger("0x123.123")).toThrow();
+  expect(() => new BigInteger(10 ** 100)).toThrow();
 });
