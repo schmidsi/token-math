@@ -66,9 +66,18 @@ test("Strange numbers", () => {
 
   const expected = createPrice(
     createQuantity(tokenA, "1000"),
-    createQuantity(tokenB, "23143")
+    createQuantity(tokenB, "23142")
   );
 
   expect(result).toBeEqual(expected);
   expect(toFixed(result)).toBe(toFixed(price));
+});
+
+test("Very big numbers", () => {
+  const price = createPrice(
+    createQuantity(mln, 1.0),
+    createQuantity(mln, 1111.0)
+  );
+
+  expect(toFixed(normalize(price))).toBe("1111.000000");
 });

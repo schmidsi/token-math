@@ -4,13 +4,13 @@ import {
   multiply,
   BigInteger,
   add,
-  power
+  power,
+  toBI
 } from "../bigInteger";
 import { createQuantity } from "../quantity";
 import PriceInterface from "./PriceInterface";
 import cancelDown from "./cancelDown";
-import { quantity } from "index";
-import toString from "bigInteger/toString";
+import { appendDecimals } from "../token";
 
 /**
  * Takes a price and normalizes it:
@@ -22,23 +22,37 @@ import toString from "bigInteger/toString";
  * 10000
  */
 const normalize = (price: PriceInterface): PriceInterface => {
-  const cancelledDown = cancelDown(price);
+  const base = createQuantity(price.base.token, 1);
 
-  const factor =
-    10 ** cancelledDown.base.token.decimals /
-    parseFloat(`${cancelledDown.base.quantity}`);
+  const decimalsDifference =
+    price.base.token.decimals - price.quote.token.decimals;
 
-  const base = createQuantity(
-    cancelledDown.base.token,
-    Math.round(factor * parseFloat(`${cancelledDown.base.quantity}`)).toString()
+  const quoteQuantityIgnoreDecimals = divide(
+    multiply(
+      appendDecimals(price.quote.token, 1),
+      price.quote.quantity,
+      // Add the sum of quote + base decimals to prevent loss of information during division
+      power(
+        toBI(10),
+        toBI(price.quote.token.decimals + price.base.token.decimals)
+      )
+    ),
+    price.base.quantity
   );
 
-  const quote = createQuantity(
-    cancelledDown.quote.token,
-    Math.round(
-      factor * parseFloat(`${cancelledDown.quote.quantity}`)
-    ).toString()
+  const decimalsDifferenceFactor = power(toBI(10), toBI(decimalsDifference));
+
+  const withDecimalsCleaned = divide(
+    decimalsDifference >= 0
+      ? multiply(quoteQuantityIgnoreDecimals, decimalsDifferenceFactor)
+      : divide(quoteQuantityIgnoreDecimals, decimalsDifferenceFactor),
+    power(
+      toBI(10),
+      toBI(price.quote.token.decimals + price.base.token.decimals)
+    )
   );
+
+  const quote = createQuantity(price.quote.token, withDecimalsCleaned);
 
   return {
     base,
