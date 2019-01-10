@@ -5,6 +5,7 @@ import QuantityInterface from "../quantity/QuantityInterface";
 import createQuantity from "../quantity/createQuantity";
 import isEqual from "../token/isEqual";
 import ensure from "../utils/ensure";
+import { isZero } from "../quantity";
 
 const valueIn = (
   price: PriceInterface,
@@ -16,6 +17,12 @@ const valueIn = (
     "Require price to contain token to convert",
     { price, quantity }
   );
+
+  if (isZero(price.quote) || isZero(price.base) || isZero(quantity)) {
+    return isEqual(price.base.token, quantity.token)
+      ? createQuantity(price.quote.token, 0)
+      : createQuantity(price.base.token, 0);
+  }
 
   return isEqual(price.base.token, quantity.token)
     ? createQuantity(

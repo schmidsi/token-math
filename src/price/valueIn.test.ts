@@ -1,7 +1,9 @@
 import BigInteger from "../bigInteger/BigInteger";
 import isEqual from "../quantity/isEqual";
-
 import valueIn from "./valueIn";
+import { createToken } from "../token";
+import { createPrice } from "../price";
+import { createQuantity } from "../quantity";
 
 test("valueIn", () => {
   const ethInBtc = {
@@ -60,4 +62,19 @@ test("valueIn", () => {
   };
 
   expect(isEqual(result2, expected2)).toBe(true);
+});
+
+it("Returns zero for zero prices", () => {
+  const mln = createToken("MLN");
+  const eth = createToken("ETH");
+
+  const zeroPrice = createPrice(createQuantity(mln, 0), createQuantity(eth, 0));
+
+  expect(valueIn(zeroPrice, createQuantity(mln, 10))).toEqual(
+    createQuantity(eth, 0)
+  );
+
+  expect(valueIn(zeroPrice, createQuantity(eth, 10))).toEqual(
+    createQuantity(mln, 0)
+  );
 });
