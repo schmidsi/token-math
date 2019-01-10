@@ -34,9 +34,9 @@ const valueIn = (
       )
     : createQuantity(
         price.base.token,
-        multiply(
-          divide(quantity.quantity, price.quote.quantity),
-          price.base.quantity
+        divide(
+          multiply(price.base.quantity, quantity.quantity),
+          price.quote.quantity
         )
       );
 };

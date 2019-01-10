@@ -3,7 +3,7 @@ import isEqual from "../quantity/isEqual";
 import valueIn from "./valueIn";
 import { createToken } from "../token";
 import { createPrice } from "../price";
-import { createQuantity } from "../quantity";
+import { createQuantity, toFixed } from "../quantity";
 
 test("valueIn", () => {
   const ethInBtc = {
@@ -77,4 +77,13 @@ it("Returns zero for zero prices", () => {
   expect(valueIn(zeroPrice, createQuantity(eth, 10))).toEqual(
     createQuantity(mln, 0)
   );
+});
+
+it("Reversed value in with decimals", () => {
+  const mln = createToken("MLN");
+  const eth = createToken("ETH");
+
+  const price = createPrice(createQuantity(mln, 1), createQuantity(eth, 10));
+
+  expect(toFixed(valueIn(price, createQuantity(eth, 2)))).toBe("0.200000");
 });
