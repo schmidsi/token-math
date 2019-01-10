@@ -1,6 +1,5 @@
-import bnCall from "./bnCall";
 import BigInteger from "./BigInteger";
 
-const toString = (bi: BigInteger) => bnCall.toString("toString", bi);
+const toString = (bi: BigInteger) => `${bi}`;
 
 export default toString;

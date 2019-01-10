@@ -1,7 +1,7 @@
-import bnCall from "./bnCall";
+import JSBI from "jsbi";
 import BigInteger from "./BigInteger";
 
 const add = (...bigints: BigInteger[]): BigInteger =>
-  bigints.reduce((a, b) => bnCall.toBigInteger("add", a, b));
+  bigints.reduce((a, b) => new BigInteger(JSBI.add(a.value, b.value)));
 
 export default add;
