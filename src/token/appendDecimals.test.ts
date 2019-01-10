@@ -10,4 +10,6 @@ test("appendDecimals", () => {
   expect(appendDecimals(tknB, 2).toString()).toBe("20000000000");
   expect(appendDecimals(tknA, "2.34").toString()).toBe("234000");
   expect(appendDecimals(tknC, "0.0022387548274030184").toString()).toBe("2238754827403018");
+  expect(appendDecimals(tknA, "00.00000").toString()).toBe("0");
+  // expect(appendDecimals(tknA, 10 ** 100).toString()).toBe("0");
 });
