@@ -1,9 +1,9 @@
-import { createToken } from "../token";
-import { createQuantity } from "../quantity";
-import { createPrice, toFixed } from "./";
 import toBeEqual from "./isEqual.test";
-
 import normalize from "./normalize";
+import createToken from "../token/createToken";
+import createPrice from "./createPrice";
+import createQuantity from "../quantity/createQuantity";
+import toFixed from "./toFixed";
 
 expect.extend({ toBeEqual });
 

@@ -1,4 +1,4 @@
-import { BigInteger } from "../bigInteger";
+import BigInteger from "../bigInteger/BigInteger";
 import isZero from "./isZero";
 import createQuantity from "./createQuantity";
 

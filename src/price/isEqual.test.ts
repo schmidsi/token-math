@@ -1,5 +1,6 @@
 import PriceInterface from "./PriceInterface";
 import isEqual from "./isEqual";
+import display from "./display";
 
 declare global {
   namespace jest {
@@ -9,26 +10,17 @@ declare global {
   }
 }
 
-const displayPrice = price =>
-  `${price.base.quantity}${price.base.token.symbol}/${price.quote.quantity}${
-    price.quote.token.symbol
-  }`;
-
 const toBeEqual = (received, expected) =>
   isEqual(received, expected)
     ? {
         pass: true,
         message: () =>
-          `expected ${displayPrice(received)} to not equal ${displayPrice(
-            expected
-          )}`
+          `expected ${display(received)} to not equal ${display(expected)}`
       }
     : {
         pass: false,
         message: () =>
-          `expected ${displayPrice(received)} to equal ${displayPrice(
-            expected
-          )}`
+          `expected ${display(received)} to equal ${display(expected)}`
       };
 
 test("toBeEqual", () => {});

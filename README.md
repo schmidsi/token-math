@@ -22,33 +22,14 @@ This package contains 5 top-level namespaces with associated functions:
 
 ## Usage
 
-There are 3 ways to import the library in typescript:
-
-### 1. Everything
-
 ```typescript
-import * as tokenMath from "@melonproject/token-math";
-
-const mlnToken = tokenMath.token.createToken("MLN");
-```
-
-### 2. Only needed namespaces
-
-```typescript
-import { token } from "@melonproject/token-math";
-
-const mlnToken = token.createToken("MLN");
-```
-
-### 3. Only needed functions (Recommended)
-
-```typescript
-import { createToken } from "@melonproject/token-math/token";
+import { createToken, isEqual } from "@melonproject/token-math";
 
 const mlnToken = createToken("MLN");
-```
+const mlnToken2 = createToken("MLN");
 
-We recommend option 3 because it makes your code more concise and you could take advantage of tree-shaking in your build process. That said, be careful with this method because some functions exist on `quantity` and `bigInteger`. Although, you shouldn't use `bigInteger` anyways, or only the constructor functions.
+expect(isEqual(mlnToken, mlnToken2)).toBe(true);
+```
 
 ## Development
 
