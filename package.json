@@ -4,7 +4,7 @@
     "src"
   ],
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "scripts": {
     "deploy": "yarn version --patch && yarn prepare && cd dist && yarn publish --no-git-tag-version --non-interactive && git add ../src/package.json && git commit --amend --no-edit && git push && git push --tags",
