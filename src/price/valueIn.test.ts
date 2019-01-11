@@ -1,9 +1,10 @@
 import BigInteger from "../bigInteger/BigInteger";
 import isEqual from "../quantity/isEqual";
+import createQuantity from "../quantity/createQuantity";
 import valueIn from "./valueIn";
-import { createToken } from "../token";
-import { createPrice } from "../price";
-import { createQuantity, toFixed } from "../quantity";
+import createToken from "../token/createToken";
+import createPrice from "./createPrice";
+import toFixed from "../quantity/toFixed";
 
 test("valueIn", () => {
   const ethInBtc = {

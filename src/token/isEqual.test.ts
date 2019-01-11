@@ -1,4 +1,4 @@
-import { isEqual } from ".";
+import isEqual from "./isEqual";
 
 test("Checksummed and unchecksummed compare", () => {
   const checksummed = {

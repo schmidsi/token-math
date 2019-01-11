@@ -1,6 +1,6 @@
 import createQuantity from "./createQuantity";
 import toFixed from "./toFixed";
-import { createToken } from "../token";
+import createToken from "../token/createToken";
 
 test("toFixed", () => {
   const q1 = createQuantity("TEST", 1.2);

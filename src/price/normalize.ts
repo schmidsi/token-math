@@ -1,16 +1,11 @@
-import {
-  divide,
-  modulo,
-  multiply,
-  BigInteger,
-  add,
-  power,
-  toBI
-} from "../bigInteger";
-import { createQuantity } from "../quantity";
+import appendDecimals from "../token/appendDecimals";
+import createQuantity from "../quantity/createQuantity";
+import divide from "../bigInteger/divide";
+import multiply from "../bigInteger/multiply";
+import power from "../bigInteger/power";
+import toBI from "../bigInteger/toBI";
+
 import PriceInterface from "./PriceInterface";
-import cancelDown from "./cancelDown";
-import { appendDecimals } from "../token";
 
 /**
  * Takes a price and normalizes it:

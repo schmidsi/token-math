@@ -5,7 +5,7 @@ import QuantityInterface from "../quantity/QuantityInterface";
 import createQuantity from "../quantity/createQuantity";
 import isEqual from "../token/isEqual";
 import ensure from "../utils/ensure";
-import { isZero } from "../quantity";
+import isZero from "../quantity/isZero";
 
 const valueIn = (
   price: PriceInterface,
