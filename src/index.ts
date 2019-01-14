@@ -10,9 +10,6 @@ export {
 } from "./bigInteger/ConvertableBigInteger";
 export { default as divide } from "./bigInteger/divide";
 export {
-  default as isConvertableBigInteger
-} from "./bigInteger/isConvertableBigInteger";
-export {
   default as getGreatestCommonDivisor
 } from "./bigInteger/getGreatestCommonDivisor";
 export { default as modulo } from "./bigInteger/modulo";
