@@ -6,7 +6,7 @@ import JSBI from "jsbi";
  *
  * This class is not intended to be enhanced or anything (since we are still strictly functional here)
  */
-class BigInteger extends String {
+export class BigInteger extends String {
   readonly value: JSBI;
 
   constructor(value: number | string | any) {

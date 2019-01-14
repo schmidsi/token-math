@@ -1,4 +1,5 @@
-import BigInteger from "../bigInteger/BigInteger";
+import isConvertableBigInteger from "../bigInteger/isConvertableBigInteger";
+import ConvertableBigInteger from "../bigInteger/ConvertableBigInteger";
 import { default as isZeroBigInteger } from "../bigInteger/isZero";
 
 import QuantityInterface from "../quantity/QuantityInterface";
@@ -6,12 +7,12 @@ import isQuantity from "../quantity/isQuantity";
 import { default as isZeroQuantity } from "../quantity/isZero";
 
 export type IsZero = {
-  (a: BigInteger): boolean;
+  (a: ConvertableBigInteger): boolean;
   (a: QuantityInterface): boolean;
 };
 
 const isZero: IsZero = (a: any): boolean => {
-  if (a instanceof BigInteger) {
+  if (isConvertableBigInteger(a)) {
     return isZeroBigInteger(a);
   }
 

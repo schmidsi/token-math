@@ -1,3 +1,5 @@
+import ConvertableBigInteger from "../bigInteger/ConvertableBigInteger";
+import isConvertableBigInteger from "../bigInteger/isConvertableBigInteger";
 import BigInteger from "../bigInteger/BigInteger";
 import { default as addBigInteger } from "../bigInteger/add";
 
@@ -6,12 +8,15 @@ import isQuantity from "../quantity/isQuantity";
 import { default as addQuantity } from "../quantity/add";
 
 export type Add = {
-  (...summands: BigInteger[]): BigInteger;
+  (...summands: ConvertableBigInteger[]): BigInteger;
   (...summands: QuantityInterface[]): QuantityInterface;
 };
 
 const add: Add = (...summands: any[]): any => {
-  if (summands[0] instanceof BigInteger && summands[1] instanceof BigInteger) {
+  if (
+    isConvertableBigInteger(summands[0]) &&
+    isConvertableBigInteger(summands[1])
+  ) {
     return addBigInteger(...summands);
   }
 

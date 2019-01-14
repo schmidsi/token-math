@@ -1,3 +1,5 @@
+import ConvertableBigInteger from "../bigInteger/ConvertableBigInteger";
+import isConvertableBigInteger from "../bigInteger/isConvertableBigInteger";
 import BigInteger from "../bigInteger/BigInteger";
 import { default as subtractBigInteger } from "../bigInteger/subtract";
 
@@ -6,12 +8,15 @@ import isQuantity from "../quantity/isQuantity";
 import { default as subtractQuantity } from "../quantity/subtract";
 
 export type Subtract = {
-  (...minuends: BigInteger[]): BigInteger;
+  (...minuends: ConvertableBigInteger[]): BigInteger;
   (...minuends: QuantityInterface[]): QuantityInterface;
 };
 
 const subtract: Subtract = (...minuends: any[]): any => {
-  if (minuends[0] instanceof BigInteger && minuends[1] instanceof BigInteger) {
+  if (
+    isConvertableBigInteger(minuends[0]) &&
+    isConvertableBigInteger(minuends[1])
+  ) {
     return subtractBigInteger(...minuends);
   }
 

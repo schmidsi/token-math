@@ -1,5 +1,3 @@
-import BigInteger from "./BigInteger";
-
-const toString = (bi: BigInteger) => `${bi}`;
+const toString = (bi: any) => `${bi}`;
 
 export default toString;

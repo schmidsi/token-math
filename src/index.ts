@@ -5,7 +5,13 @@ export { default as isAddress, ensureAddress } from "./address/isAddress";
 // BigInteger
 export { default as absolute } from "./bigInteger/absolute";
 export { default as BigInteger } from "./bigInteger/BigInteger";
+export {
+  default as ConvertableBigInteger
+} from "./bigInteger/ConvertableBigInteger";
 export { default as divide } from "./bigInteger/divide";
+export {
+  default as isConvertableBigInteger
+} from "./bigInteger/isConvertableBigInteger";
 export {
   default as getGreatestCommonDivisor
 } from "./bigInteger/getGreatestCommonDivisor";

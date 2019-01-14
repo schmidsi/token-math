@@ -1,8 +1,9 @@
 import normalize from "./normalize";
 import PriceInterface from "./PriceInterface";
 import BigInteger from "../bigInteger/BigInteger";
+import toBI from "../bigInteger/toBI";
 
 const toAtomic = (price: PriceInterface): BigInteger =>
-  normalize(price).quote.quantity;
+  toBI(normalize(price).quote.quantity);
 
 export default toAtomic;

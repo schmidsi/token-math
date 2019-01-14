@@ -1,4 +1,5 @@
-import BigInteger from "../bigInteger/BigInteger";
+import ConvertableBigInteger from "../bigInteger/ConvertableBigInteger";
+import isConvertableBigInteger from "../bigInteger/isConvertableBigInteger";
 import { default as isEqualBigInteger } from "../bigInteger/isEqual";
 
 import QuantityInterface from "../quantity/QuantityInterface";
@@ -14,14 +15,14 @@ import isPrice from "../price/isPrice";
 import { default as isEqualPrice } from "../price/isEqual";
 
 export type IsEqual = {
-  (a: BigInteger, b: BigInteger): boolean;
+  (a: ConvertableBigInteger, b: ConvertableBigInteger): boolean;
   (a: PriceInterface, b: PriceInterface): boolean;
   (a: QuantityInterface, b: QuantityInterface): boolean;
   (a: TokenInterface, b: TokenInterface): boolean;
 };
 
 const isEqual: IsEqual = (a, b) => {
-  if (a instanceof BigInteger && b instanceof BigInteger) {
+  if (isConvertableBigInteger(a) && isConvertableBigInteger(b)) {
     return isEqualBigInteger(a, b);
   }
 
