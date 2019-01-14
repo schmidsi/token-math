@@ -32,9 +32,10 @@
     "url": "https://github.com/melonproject/token-lab/issues"
   },
   "homepage": "https://github.com/melonproject/token-lab#readme",
-  "author": "Simon Emanuel Schmid <simon@melonport.com>",
+  "author": "Simon Emanuel Schmid <simon@schmid.io>",
   "contributors": [
-    "Travis Jacobs <travis@melonport.com>"
+    "Travis Jacobs <travis@melonport.com>",
+    "Sebastian Siemssen <fubhy@fubhy.com>"
   ],
   "devDependencies": {
     "@types/jest": "^23.3.12",
