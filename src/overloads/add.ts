@@ -1,5 +1,4 @@
 import ConvertableBigInteger from "../bigInteger/ConvertableBigInteger";
-import isConvertableBigInteger from "../bigInteger/isConvertableBigInteger";
 import BigInteger from "../bigInteger/BigInteger";
 import { default as addBigInteger } from "../bigInteger/add";
 
@@ -13,18 +12,11 @@ export type Add = {
 };
 
 const add: Add = (...summands: any[]): any => {
-  if (
-    isConvertableBigInteger(summands[0]) &&
-    isConvertableBigInteger(summands[1])
-  ) {
-    return addBigInteger(...summands);
-  }
-
   if (isQuantity(summands[0]) && isQuantity(summands[1])) {
     return addQuantity(...summands);
   }
 
-  throw new TypeError(`"add" not implemented for ${typeof summands[0]}`);
+  return addBigInteger(...summands);
 };
 
 export default add;

@@ -1,5 +1,4 @@
 import ConvertableBigInteger from "../bigInteger/ConvertableBigInteger";
-import isConvertableBigInteger from "../bigInteger/isConvertableBigInteger";
 import { default as isEqualBigInteger } from "../bigInteger/isEqual";
 
 import QuantityInterface from "../quantity/QuantityInterface";
@@ -22,10 +21,6 @@ export type IsEqual = {
 };
 
 const isEqual: IsEqual = (a, b) => {
-  if (isConvertableBigInteger(a) && isConvertableBigInteger(b)) {
-    return isEqualBigInteger(a, b);
-  }
-
   if (isQuantity(a) && isQuantity(b)) {
     return isEqualQuantity(a, b);
   }
@@ -38,7 +33,7 @@ const isEqual: IsEqual = (a, b) => {
     return isEqualPrice(a, b);
   }
 
-  return false;
+  return isEqualBigInteger(a, b);
 };
 
 export default isEqual;

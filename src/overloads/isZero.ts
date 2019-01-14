@@ -1,4 +1,3 @@
-import isConvertableBigInteger from "../bigInteger/isConvertableBigInteger";
 import ConvertableBigInteger from "../bigInteger/ConvertableBigInteger";
 import { default as isZeroBigInteger } from "../bigInteger/isZero";
 
@@ -12,15 +11,11 @@ export type IsZero = {
 };
 
 const isZero: IsZero = (a: any): boolean => {
-  if (isConvertableBigInteger(a)) {
-    return isZeroBigInteger(a);
-  }
-
   if (isQuantity(a)) {
     return isZeroQuantity(a);
   }
 
-  throw new TypeError(`"isZero" not implemented for ${typeof a}`);
+  return isZeroBigInteger(a);
 };
 
 export default isZero;
