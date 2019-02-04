@@ -3,16 +3,17 @@ import createToken from "../token/createToken";
 import appendDecimals from "../token/appendDecimals";
 import TokenInterface from "../token/TokenInterface";
 import QuantityInterface from "./QuantityInterface";
+import toBI from "../bigInteger/toBI";
 
 const toBigInteger = (
   token: TokenInterface,
   value: number | string | BigInteger
 ): BigInteger => {
-  if (value instanceof BigInteger) return value;
   if (typeof value === "string" && value.replace(",", ".").includes("."))
     return appendDecimals(token, value);
   if (typeof value === "string") return new BigInteger(value);
   if (typeof value === "number") return appendDecimals(token, value.toString());
+  return toBI(value);
 };
 
 /**
