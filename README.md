@@ -1,5 +1,7 @@
 # token-math
 
+![](./docs/token-math.png)
+
 A small helper library to do precision safe calculations and work with tokens.
 
 _This is heavily work in progress. But feel free to open issues/pull-request with ideas._
